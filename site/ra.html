@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Rheumatoid arthritis — Overview · Therapeutics Atlas</title>
+<meta name="description" content="A Therapeutics Atlas record of what is known, disputed, and untested about treating rheumatoid arthritis.">
+<link rel="icon" type="image/png" href="favicon-rounded.png">
+<link rel="stylesheet" href="site.css">
+</head>
+<body>
+<div class="top">
+  <div class="wrap">
+    <div class="brandbar">
+      <a class="wordmark" href="index.html"><img class="brand-logo" src="navbar-logo.png" alt="">Therapeutics Atlas</a>
+      <span class="crumbs"><span class="sep">›</span><span class="here">Rheumatoid arthritis</span></span>
+    </div>
+  </div>
+</div>
+
+<main>
+  <div class="wrap">
+
+    <section class="masthead">
+      <p class="eyebrow">Disease record</p>
+      <h1>Rheumatoid arthritis</h1>
+      <p class="lede" id="lede">An open, checkable record of what is known, disputed, and untested about
+        treating rheumatoid arthritis — including the interventions that do not work.</p>
+      <div class="disclaimer slim" id="disclaimer">Not medical advice. No treatment recommendation and no
+        claim that any intervention works.</div>
+    </section>
+
+    <p class="ov-intro">This overview is a plain-language reading of the whole record — six areas of
+      evidence you can read straight through, then the open research leads. Each area summarises what the
+      research found and shows the spread of its evidence tiers; to inspect, search, or cite the
+      individual records behind it, open it in the Treatment Map.</p>
+
+    <div class="cta-band">
+      <div>
+        <div class="t">The Treatment Map</div>
+        <div class="d">The complete, searchable database — every record with its sources, plus negative
+          results, conflicts, corrections, and references.</div>
+      </div>
+      <a class="cta" href="map.html">Explore the Treatment Map →</a>
+    </div>
+
+    <div id="blocks"></div>
+
+    <section class="leads-sec">
+      <h2 class="leads-h">Research Leads <span class="n" id="leads-n"></span></h2>
+      <p class="leads-note">Research Leads are testable unanswered questions, not treatment
+        recommendations. None implies that any intervention works.</p>
+
+      <ol class="progression" id="progression"></ol>
+
+      <div id="leads-open"></div>
+
+      <h3 class="ledger-h">Other investigated leads <span class="n" id="other-n"></span></h3>
+      <p class="ledger-note">Promoted at triage, then closed or left unresolved by critical review and
+        verification. Kept as research history, with the reason recorded.</p>
+      <div class="ledger" id="leads-other"></div>
+    </section>
+
+    <h2 style="margin-top:42px">Research archive &amp; provenance</h2>
+    <p class="section-note">The methods and full trail behind every conclusion — the source materials, for
+      anyone who wants to check the reasoning rather than take it on trust.</p>
+    <div class="prov">
+      <div class="prov-row">
+        <div class="prov-label">Research trail</div>
+        <div class="prov-body">
+          <ol class="phase-trail">
+            <li><a class="pt-main" href="https://github.com/Therapeutics-Atlas/Therapeutics-Atlas.github.io/blob/main/phases/phase1_evidence_baseline.md"><span class="pt-n">1</span><span class="pt-name">Evidence baseline</span></a></li>
+            <li><a class="pt-main" href="https://github.com/Therapeutics-Atlas/Therapeutics-Atlas.github.io/blob/main/phases/phase2_treatment_landscape.md"><span class="pt-n">2</span><span class="pt-name">Treatment landscape</span></a></li>
+            <li><a class="pt-main" href="https://github.com/Therapeutics-Atlas/Therapeutics-Atlas.github.io/blob/main/phases/phase3_open_treatment_map.md"><span class="pt-n">3</span><span class="pt-name">Open treatment map</span></a></li>
+            <li><a class="pt-main" href="https://github.com/Therapeutics-Atlas/Therapeutics-Atlas.github.io/blob/main/phases/phase4_research_leads.md"><span class="pt-n">4</span><span class="pt-name">Research leads</span></a></li>
+            <li><a class="pt-main" href="https://github.com/Therapeutics-Atlas/Therapeutics-Atlas.github.io/blob/main/phases/phase5_deep_investigation.md"><span class="pt-n">5</span><span class="pt-name">Deep investigation</span></a>
+              <a class="pt-sub" href="https://github.com/Therapeutics-Atlas/Therapeutics-Atlas.github.io/blob/main/phases/phase5_targeted_verification.md">Targeted verification against primary full texts</a></li>
+            <li><a class="pt-main" href="https://github.com/Therapeutics-Atlas/Therapeutics-Atlas.github.io/blob/main/phases/phase6_next_steps.md"><span class="pt-n">6</span><span class="pt-name">Next steps</span></a></li>
+          </ol>
+          <p class="prov-note">Six sequential phases, each written before the next began and preserved unedited.</p>
+        </div>
+      </div>
+      <div class="prov-row">
+        <div class="prov-label">Methods</div>
+        <div class="prov-body"><a href="https://github.com/Therapeutics-Atlas/Therapeutics-Atlas.github.io/blob/main/docs/evidence_grading.md">Evidence grading</a>
+          <span class="prov-d">— how every intervention was graded on one scale.</span></div>
+      </div>
+      <div class="prov-row">
+        <div class="prov-label">Current status</div>
+        <div class="prov-body"><a href="https://github.com/Therapeutics-Atlas/Therapeutics-Atlas.github.io/blob/main/docs/next_steps_and_dependencies.md">Next steps &amp; dependencies</a>
+          <span class="prov-d">— what remains open and who it depends on.</span></div>
+      </div>
+      <div class="prov-row">
+        <div class="prov-label">Corrections</div>
+        <div class="prov-body"><a href="map.html#corrections">Corrections to earlier statements</a>
+          <span class="prov-d">— statements this project retracted; read before citing any phase document.</span></div>
+      </div>
+    </div>
+
+  </div>
+</main>
+
+<footer>
+  <div class="wrap" id="foot">Grades describe the state of the evidence, not the biology.</div>
+</footer>
+
+<script>
+/* Reads the same ra_record.json the Treatment Map uses. This page is a readable summary, not a second
+   copy of the database: each area shows a short summary of what the research found and the spread of its
+   evidence tiers; the individual records live only in the Treatment Map. Counts come from the data. */
+const SECTIONS = [
+  ['know',          'What we know about the disease'],
+  ['works',         'What works'],
+  ['doesnt_work',   'What does not work'],
+  ['uncertain',     'What is uncertain'],
+  ['dont_know',     'What we do not know'],
+  ['worth_studying','Preliminary research candidates']
+];
+
+/* Per-section summaries of what the record actually found, synthesised from the research trail
+   (SUMMARY.md, phases/phase1_evidence_baseline.md, phase2, phase3 §1–6, and the phase 4–5 lead work).
+   Every substantive claim traces to those files; caveats that would make a claim misleading if dropped
+   (post-hoc subgroups, populations actually studied, evidence quality) are kept in the sentence.
+   Corrected against RA_overview_summary_review.md and data/corrections_log.csv — check the log before
+   changing any of this wording, since three earlier phrasings had reverted retracted statements. */
+const SECTION_SUMMARY = {
+  know: `RA is a systemic autoimmune disease that inflames the joint lining and erodes bone, affecting 17.6 million people worldwide and women more than twice as often as men. It is not one disease — autoantibody-positive and autoantibody-negative RA differ in genetics, environmental risk (smoking is the best-established) and outcome — and it begins years before it can be diagnosed, which creates an at-risk phase that is now a trial population. Two facts constrain everything downstream: "remission" is an operational score rather than a biological state, so patients meeting it can still have detectable inflammation, persistent symptoms and persistent autoimmunity; and among difficult-to-treat patients assessed by ultrasound, 43% have no objective inflammation at all. For much of the world, meanwhile, the binding constraint is access rather than science — advanced therapy use was 38.8% among surveyed patients in very-high-HDI countries and 2.7% in low-HDI ones (COVAD-2, cross-sectional, n=1,997).`,
+
+  works: `Modern treatment genuinely works, and its ceiling is visible in its own trials: methotrexate anchors therapy but brings at most about half of patients to remission, and even the best first-line arm of a head-to-head trial left roughly two in five patients short of it at 48 weeks. Strategy matters independently of the drug — tight, target-driven control outperforms routine care — and when a biologic fails, switching to an untried class raises response rates at group level (untried TNFi ACR50 OR 6.04, high certainty), though which class is found by trial and error rather than by prediction. Benefit is not confined to drugs: physical activity is the best-evidenced treatment for fatigue, and two methotrexate add-ons from outside Western practice, iguratimod and Tripterygium wilfordii, also show replicated benefit — iguratimod on a trial base almost entirely from East Asia, and Tripterygium on evidence whose reported efficacy fell as trial quality rose. None of it is free: biologics raise serious infection risk, and in patients aged 65 and over, two years of low-dose steroids improved both disease activity and joint damage (DAS28 −0.37; damage −1.7 points) while measurably increasing adverse events (60% vs 49%).`,
+
+  doesnt_work: `The clearest negative results are in prevention and withdrawal. Three randomised trials in at-risk people converge on the same bottom line, no prevention — TREAT EARLIER was null on its primary endpoint, while APIPPRA's and PRAIRI's effects appeared on treatment and faded after it, which is delay rather than prevention. Tapering TNF inhibitors to withdrawal in sustained remission failed decisively, with 63% flaring versus 5% on stable therapy. A range of adjuncts and alternatives have also been tested and returned null results — acupuncture against same-acupoint sham, vitamin E, mudpack balneotherapy and elemental diets — mostly on small or heterogeneous evidence bases, and the acupuncture null is contested (see What is uncertain). Tripterygium monotherapy was non-inferior to methotrexate and iguratimod monotherapy showed no advantage over it — neither better. Two entries record harm rather than absence: total lymphoid irradiation was effective short-term but at ten years 7 of 10 irradiated patients had died versus 2 of 9 controls, and opioids beat placebo on patients' global impression (RR 1.44) while raising adverse events (OR 3.90), on trials of one to six weeks with only one 20-patient study of a strong opioid.`,
+
+  uncertain: `The uncertainties here are as much about method as about biology. The same prevention trial — VITAL, whose endpoint is all autoimmune disease rather than RA — reads as protective on treatment and null two years after stopping; a meta-analysis and a randomised trial of the same procedure contradict each other outright; and acupuncture is null against same-acupoint sham while showing large effects against other controls — a dispute about which control is valid, not about the data. A cluster of supplements and adjuncts sits unresolved on evidence too thin to settle either way, and Tripterygium's safety remains genuinely contested, with reassuring trial-level adverse events set against forty years of reproductive toxicology operating on a longer timescale. One pattern governs how to read all of it: across the Phase 2 corpus the largest reported effects come from the least rigorous studies and the best-designed syntheses report the smallest, so a large effect from a small or low-quality trial should be read as a hypothesis about an effect, not as an effect.`,
+
+  dont_know: `One central gap is prediction: there is no validated way to choose a drug for a patient. Models built on synovial tissue can predict response, but none has been tested prospectively as an allocation rule — and of the 67 interventions surveyed across twelve traditions, none addresses this need at all, which makes it an empty space rather than a contested one. It remains unclear which patients can safely stop treatment: no patient who ever needed a biologic achieved sustained drug-free remission, versus 37% at five years among those who never did, which may mark a genuinely different disease course or may be an artefact of which patients get studied. It is also not established what sustains inflammation in patients who stay refractory — a stromal, fibroblast-driven programme is one hypothesis, tested interventionally only in an open-label phase 1b of seliciclib (n=15) and never in a biopsy- or signature-selected population — and no strategy is established for the roughly 43% of difficult-to-treat patients who, when assessed with ultrasound, show no objective inflammation yet receive escalating immunosuppression without a mechanistic rationale. Two questions remain open: why the disease localises to the joints, symmetrically, for which no causal model exists, and whether immune tolerance can be induced rather than immunity suppressed, now in early clinical test.`,
+
+  worth_studying: `These are signals with a specific stated reason to look at them again — not ranked, not endorsed, not claimed to be effective, and several will turn out to be nothing. They group by the type of reason rather than by promise: treatments abandoned for non-scientific reasons, such as an immunoadsorption device that beat sham in long-refractory patients and was withdrawn on cost as biologics arrived; drug classes with positive RA trial results that never entered RA practice, for reasons our search did not retrieve; subgroup anomalies inside otherwise negative trials, such as the TREAT EARLIER subgroup signal — 66 participants, 13 events, post-hoc, and now reframed as selected by baseline MRI inflammatory burden rather than by ACPA status; and gaps with a concrete rationale, such as non-immunosuppressive strategies for refractory patients who have no inflammation. What unites them is a reason to ask again, not evidence that anything works — of these candidates, six of 22 were promoted to Research Leads, and after critical review two remain open.`
+};
+
+const TIER_WORDS = ['Established', 'Probable', 'Uncertain', 'Hypothesis', 'Unknown'];
+const TIER_ORDER = ['Established', 'Probable', 'Uncertain', 'Hypothesis', 'Unknown', 'Other'];
+const GROUP_CLASS = {Established:'est', Probable:'prob', Uncertain:'unc', Hypothesis:'hyp', Unknown:'unk', Other:'unk'};
+
+function esc(s){ return String(s==null?'':s).replace(/[&<>"]/g, c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c])); }
+/* Group a statement by the leading word of its evidence tier — an objective grade already in the data.
+   Used only to draw the tier-distribution bar, never as a ranking of importance. */
+function tierGroup(t){ const s=(t||'').trim(); return TIER_WORDS.find(w=>s.startsWith(w)) || 'Other'; }
+
+/* The evidence-tier distribution for a section — a thin proportional bar plus a counted legend, so the
+   shape of the evidence reads at a glance. */
+function distHtml(rows){
+  const counts = {};
+  rows.forEach(r => { const g = tierGroup(r.evidence_tier); counts[g] = (counts[g]||0) + 1; });
+  const present = TIER_ORDER.filter(g => counts[g]);
+  const seg = present.map(g => `<span class="seg t-${GROUP_CLASS[g]}" style="flex:${counts[g]}" title="${esc(g)}: ${counts[g]}"></span>`).join('');
+  const leg = present.map(g => `<span class="lg"><span class="lgdot t-${GROUP_CLASS[g]}"></span>${esc(g)} <b>${counts[g]}</b></span>`).join('');
+  return `<div class="dist"><div class="distbar">${seg}</div><div class="distleg">${leg}</div></div>`;
+}
+
+/* One flat, readable block per area: heading, the substantive summary, the tier distribution, and a
+   link into the Treatment Map filtered to this area's records. No individual records are listed here. */
+function blockHtml(key, label, rows){
+  return `<section class="ov-block" id="s-${esc(key)}">
+    <h3 class="ov-title">${esc(label)}</h3>
+    <p class="ov-sum">${esc(SECTION_SUMMARY[key]||'')}</p>
+    ${distHtml(rows)}
+    <a class="ov-more" href="map.html?section=${encodeURIComponent(key)}">View these records in the Treatment Map →</a>
+  </section>`;
+}
+
+/* Presentation-layer title for a lead whose data-level `question` predates its own verification.
+   RL-01 was reframed by corrections V5/V6: selection is by baseline MRI inflammatory burden, not by
+   ACPA status. The lead's data and status are untouched — only the displayed title reflects that. */
+const LEAD_TITLE = {
+  'RL-01': 'Imaging-burden-selected methotrexate interception in at-risk arthralgia'
+};
+function leadTitle(l){ return LEAD_TITLE[l.id] || l.question || ''; }
+
+/* The question a lead now asks: its verified next-step analysis question(s) where they exist,
+   otherwise the lead's own question. */
+function leadQuestions(l){
+  const qs = (l.steps || []).map(s => s.question).filter(Boolean);
+  return qs.length ? qs : [l.question].filter(Boolean);
+}
+
+/* Research status is metadata, not an action badge. Preserve the source wording while presenting
+   its primary state and qualifier as a quiet, consistently structured label. */
+function statusHtml(status){
+  const parts=String(status||'').split(/\s+—\s+/,2), primary=parts[0]||'', secondary=parts[1]||'';
+  return `<span class="research-status ${/^OPEN$/i.test(primary)?'is-open':''}"><span class="primary">${esc(primary)}</span>${secondary?`<span class="separator">·</span><span class="secondary">${esc(secondary)}</span>`:''}</span>`;
+}
+
+/* An open lead — the actionable frontier, given the fullest treatment on the page. */
+function openLeadHtml(l){
+  const rows = [
+    ['Research question', leadQuestions(l).map(q => `<p>${esc(q)}</p>`).join('')],
+    ['Evidence status',   l.current_form ? `<p>${esc(l.current_form)}</p>` : ''],
+    ['Next step',         l.next_step    ? `<p>${esc(l.next_step)}</p>`    : ''],
+    ['Blocked on',        l.blocked_on   ? `<p>${esc(l.blocked_on)}</p>`   : '']
+  ].filter(([, v]) => v).map(([k, v]) =>
+    `<div class="olead-row"><div class="olead-label">${esc(k)}</div><div class="olead-body">${v}</div></div>`
+  ).join('');
+  return `<article class="olead" id="${esc(l.id)}">
+    <div class="olead-head">${statusHtml(l.current_status)}</div>
+    <h3 class="olead-title">${esc(leadTitle(l))}</h3>
+    ${rows}
+    <a class="olead-more" href="map.html#${esc(l.id)}">View the full evidence in the Treatment Map →</a>
+  </article>`;
+}
+
+/* A labelled field inside an expanded ledger row — keeps the expanded panel scannable rather than a
+   wall of grey prose. `val` is already-safe HTML (callers escape their own text). */
+function ledField(label, val){
+  return val ? `<div class="led-field"><div class="led-flabel">${esc(label)}</div><div class="led-fval">${val}</div></div>` : '';
+}
+
+/* A closed or unresolved lead — kept visible as research history, in a quieter ledger row. */
+function ledgerHtml(l){
+  const fields = [
+    ledField('Assessment', l.current_form ? `<p>${esc(l.current_form)}</p>` : ''),
+    ledField('Next step',  l.next_step    ? `<p>${esc(l.next_step)}</p>`    : '')
+  ].join('');
+  return `<details class="led" id="${esc(l.id)}">
+    <summary><span class="led-main">${statusHtml(l.current_status)}<span class="led-title">${esc(leadTitle(l))}</span></span><span class="led-chev"></span></summary>
+    <div class="led-body">${fields}<div class="led-foot"><a href="map.html#${esc(l.id)}">Full lead in the Treatment Map →</a></div></div>
+  </details>`;
+}
+
+/* 22 preliminary candidates -> 6 promoted at triage -> 2 still open after critical review. */
+function progressionHtml(candN, promotedN, openN){
+  return [
+    [candN,    'preliminary candidates', false],
+    [promotedN,'promoted to Research Leads', false],
+    [openN,    'remain open after critical review', true]
+  ].map(([n, label, now]) =>
+    `<li class="${now ? 'now' : ''}"><span class="pn">${n}</span><span class="pl">${esc(label)}</span></li>`
+  ).join('');
+}
+
+/* A hash to #s-works or #<lead-id> scrolls there, opening the lead if the hash targets one. */
+function openFromHash(){
+  const id = (location.hash||'').slice(1);
+  if (!id) return;
+  const el = document.getElementById(id);
+  if (!el) return;
+  if (el.tagName === 'DETAILS') el.open = true;
+  el.scrollIntoView({block:'start'});
+}
+
+fetch('ra_record.json')
+  .then(r => { if (!r.ok) throw new Error('HTTP ' + r.status); return r.json(); })
+  .then(db => {
+    const m = db.meta || {};
+    document.getElementById('disclaimer').innerHTML = esc(m.disclaimer || '') ||
+      'Not medical advice. No treatment recommendation and no claim that any intervention works.';
+
+    const map = db.map || [];
+    const leads = db.leads || [];
+    const candN = map.filter(r => r.section === 'worth_studying').length;
+    const openLeads  = leads.filter(l =>  /open/i.test(l.current_status||''));
+    const otherLeads = leads.filter(l => !/open/i.test(l.current_status||''));
+    document.getElementById('blocks').innerHTML =
+      SECTIONS.map(([key, label]) => {
+        const rows = map.filter(r => r.section === key);
+        return rows.length ? blockHtml(key, label, rows) : '';
+      }).join('');
+
+    document.getElementById('leads-n').textContent = `${leads.length} · ${openLeads.length} open`;
+    document.getElementById('progression').innerHTML = progressionHtml(candN, leads.length, openLeads.length);
+    document.getElementById('leads-open').innerHTML = openLeads.map(openLeadHtml).join('');
+    document.getElementById('other-n').textContent = otherLeads.length;
+    document.getElementById('leads-other').innerHTML = otherLeads.map(ledgerHtml).join('');
+
+    document.getElementById('foot').textContent =
+      `Grades describe the state of the evidence, not the biology. ` +
+      `Generated ${m.generated||''} · ${m.peer_reviewed ? 'peer reviewed' : 'not peer reviewed'}. ` +
+      `Full sources and every individual record are in the Treatment Map.`;
+
+    openFromHash();
+  })
+  .catch(e => {
+    document.getElementById('blocks').innerHTML =
+      `<div class="disclaimer">Could not load <code>ra_record.json</code> (${esc(e.message)}). ` +
+      `Serve the folder over HTTP — browsers block <code>fetch</code> from <code>file://</code>.</div>`;
+  });
+
+window.addEventListener('hashchange', openFromHash);
+</script>
+<script src="site.js" defer></script>
+</body>
+</html>

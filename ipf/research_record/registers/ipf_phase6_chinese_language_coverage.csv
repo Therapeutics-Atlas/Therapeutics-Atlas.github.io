@@ -1,0 +1,7 @@
+pmid,year,journal,type,topic,included,participants,chinese_databases,in_landscape
+35881610,2022,PLoS One,meta-analysis of Chinese-language RCTs,Chinese medicine injections plus Western medicine,63 RCTs,not stated in abstract,"CNKI, Wanfang",no - no injection product appears in the 281-row landscape
+36451506,2022,Medicine (Baltimore),network meta-analysis,four Chinese medicine injections as adjuncts,20 RCTs,1363,"CNKI, Wanfang, VIP, CBM",no
+35245333,2022,PLoS One,meta-analysis,qi-supplementing and blood-activating herbs plus conventional treatment,23 RCTs,1390,"CNKI, Wanfang, VIP",partly - individual formulas not enumerated in the landscape
+37235494,2023,Altern Ther Health Med,overview of systematic reviews,Chinese herbal medicine for IPF,not stated in abstract,15550 across included reviews,not stated in abstract,partly
+31312224,2019,Evid Based Complement Alternat Med,meta-analysis,Chinese herbal medicines versus N-acetylcysteine,not stated in abstract,733,not stated in abstract,no - this head-to-head comparison is absent from the record
+41088620,2025,Medicine (Baltimore),meta-analysis,external TCM treatment plus conventional treatment,11 RCTs,981,not stated in abstract,no

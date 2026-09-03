@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Idiopathic pulmonary fibrosis — Overview · Therapeutics Atlas</title>
+<meta name="description" content="The Therapeutics Atlas evidence record for idiopathic pulmonary fibrosis (IPF).">
+<link rel="icon" type="image/png" href="favicon-rounded.png">
+<link rel="stylesheet" href="site.css">
+</head>
+<body>
+<div class="top">
+  <div class="wrap">
+    <div class="brandbar">
+      <a class="wordmark" href="index.html"><img class="brand-logo" src="navbar-logo.png" alt="">Therapeutics Atlas</a>
+      <span class="crumbs"><span class="sep">›</span><span class="here">Idiopathic pulmonary fibrosis</span></span>
+    </div>
+  </div>
+</div>
+
+<main>
+  <div class="wrap">
+    <section class="masthead">
+      <p class="eyebrow">Disease record</p>
+      <h1>Idiopathic pulmonary fibrosis</h1>
+      <p class="lede">An open evidence record of what is known, failed, poorly studied, and still
+        unresolved about treating idiopathic pulmonary fibrosis (IPF).</p>
+      <p class="section-note">Scope: Idiopathic pulmonary fibrosis only; evidence from other fibrotic lung
+        diseases is included only when explicitly labelled indirect.</p>
+    </section>
+
+    <p class="ov-intro">This overview is a plain-language reading of the final IPF record. It summarises
+      what the research found; to inspect, search, or cite the individual statements, interventions,
+      evidence gaps, and references behind it, open the Treatment Map.</p>
+
+    <div class="cta-band">
+      <div>
+        <div class="t">The Treatment Map</div>
+        <div class="d">The complete searchable public record, including IPF-specific evidence-access
+          and measurement states.</div>
+      </div>
+      <a class="cta" href="map.html?data=ipf_record.json">Explore the Treatment Map →</a>
+    </div>
+
+    <article class="publication" id="publication"><p class="section-note">Loading the final publication Overview…</p></article>
+
+    <section class="leads-sec" id="research-outcome">
+      <h2 class="leads-h">Research Lead outcome <span class="n" id="leads-n"></span></h2>
+      <p class="leads-note">Research Leads are hypotheses or unresolved questions, not treatment
+        recommendations or claims of efficacy. This record did not promote any Research Lead.</p>
+      <div class="outcome-box" id="lead-outcome"></div>
+      <ol class="progression" id="progression"></ol>
+
+      <details class="overview-disclosure">
+        <summary><span class="disclosure-copy"><span class="ledger-h">Investigated candidates <span class="n" id="candidate-n"></span></span><span class="disclosure-hint">Screened out or held for verification — none is a positive finding.</span></span><span class="led-chev"></span></summary>
+        <div class="ledger" id="candidates"></div>
+      </details>
+
+      <details class="overview-disclosure">
+        <summary><span class="disclosure-copy"><span class="ledger-h">Evidence dependencies and retained actions <span class="n" id="action-n"></span></span><span class="disclosure-hint">Evidence work carried forward — not therapeutic hypotheses or trial proposals.</span></span><span class="led-chev"></span></summary>
+        <div class="ledger" id="actions"></div>
+      </details>
+    </section>
+
+    <h2 style="margin-top:42px">Research archive &amp; provenance</h2>
+    <p class="section-note">The completed Phase 0–6 record, publication materials, public data, and QA
+      are preserved unchanged alongside this page.</p>
+    <div class="prov">
+      <div class="prov-row">
+        <div class="prov-label">Methods</div>
+        <div class="prov-body"><a href="https://github.com/Therapeutics-Atlas/Therapeutics-Atlas.github.io/blob/main/docs/evidence_grading.md">Evidence grading</a>
+          <span class="prov-d">— how every intervention was graded on one scale.</span></div>
+      </div>
+      <div class="prov-row">
+        <div class="prov-label">Current status</div>
+        <div class="prov-body"><a href="https://github.com/Therapeutics-Atlas/Therapeutics-Atlas.github.io/blob/main/ipf/research_record/reports/IPF_phase6_next_research_steps.md">Evidence dependencies</a>
+          <span class="prov-d">— what remains open and what it depends on.</span></div>
+      </div>
+      <div class="prov-row">
+        <div class="prov-label">Corrections</div>
+        <div class="prov-body"><a href="map.html?data=ipf_record.json#corrections">Corrections to archived research statements</a>
+          <span class="prov-d">— later corrections supersede earlier phase statements.</span></div>
+      </div>
+    </div>
+  </div>
+</main>
+
+<footer><div class="wrap" id="foot">Grades describe the state of the evidence, not the biology.</div></footer>
+
+<script>
+function esc(s){ return String(s==null?'':s).replace(/[&<>\"]/g, c=>({'&':'&amp;','<':'&lt;','>':'&gt;','\"':'&quot;'}[c])); }
+function inlineMd(s){ return esc(s).replace(/\*\*(.+?)\*\*/g,'<strong>$1</strong>').replace(/`(.+?)`/g,'<code>$1</code>'); }
+
+/* A deliberately small renderer for the headings, prose, lists and tables used by the archived
+   publication Overview. Its source remains publication/OVERVIEW.md rather than a rewritten copy. */
+function renderOverview(md){
+  const lines=md.replace(/\r/g,'').split('\n'), out=[]; let i=0, para=[], sectionOpen=false, started=false;
+  const flush=()=>{ if(para.length){ out.push(`<p>${inlineMd(para.join(' '))}</p>`); para=[]; } };
+  while(i<lines.length){
+    const line=lines[i];
+    if(/^#{1,2} /.test(line)){ flush(); i++; continue; }
+    if(/^### /.test(line)){ flush(); if(sectionOpen)out.push('</section>'); const title=line.replace(/^### /,''); const id='overview-'+title.match(/^\d+/)?.[0]; out.push(`<section class="ov-block" id="${id}"><h2 class="ov-title">${inlineMd(title)}</h2>`); sectionOpen=true; started=true; i++; continue; }
+    if(!started){ i++; continue; }
+    if(/^\|/.test(line) && i+1<lines.length && /^\|[\s|:-]+\|?$/.test(lines[i+1])){
+      flush(); const rows=[]; while(i<lines.length && /^\|/.test(lines[i])) rows.push(lines[i++].split('|').slice(1,-1).map(x=>x.trim()));
+      const head=rows.shift(); rows.shift(); out.push('<div class="table-wrap"><table><thead><tr>'+head.map(x=>`<th>${inlineMd(x)}</th>`).join('')+'</tr></thead><tbody>'+rows.map(r=>'<tr>'+r.map(x=>`<td>${inlineMd(x)}</td>`).join('')+'</tr>').join('')+'</tbody></table></div>'); continue;
+    }
+    if(/^- /.test(line)){
+      flush(); const items=[]; while(i<lines.length && (/^- /.test(lines[i]) || (/^  /.test(lines[i]) && items.length))){ if(/^- /.test(lines[i])) items.push(lines[i].slice(2)); else items[items.length-1]+=' '+lines[i].trim(); i++; } out.push('<ul>'+items.map(x=>`<li>${inlineMd(x)}</li>`).join('')+'</ul>'); continue;
+    }
+    if(!line.trim()){ flush(); i++; continue; }
+    para.push(line.trim()); i++;
+  }
+  flush(); if(sectionOpen)out.push('</section>'); return out.join('');
+}
+
+/* A labelled field inside an expanded ledger row — keeps the expanded panel scannable rather than a
+   wall of grey prose. `val` is already-safe HTML (callers escape their own text). */
+function ledField(label, val){
+  return val ? `<div class="led-field"><div class="led-flabel">${esc(label)}</div><div class="led-fval">${val}</div></div>` : '';
+}
+function candidateHtml(c){
+  const fields=[
+    ledField('Why', c.reason ? `<p>${esc(c.reason)}</p>` : ''),
+    ledField('Screens not passed', c.screens_failed?.length ? esc(c.screens_failed.join(', ')) : ''),
+    ledField('Action retained', c.action_retained ? esc(c.action_retained) : '')
+  ].join('');
+  return `<details class="led" id="${esc(c.id)}"><summary><span class="led-main"><span class="led-status">${esc(c.status)}</span><span class="led-title">${esc(c.subject)}</span></span><span class="led-chev"></span></summary><div class="led-body">${fields}</div></details>`;
+}
+function actionHtml(a){
+  const outcome=[a.phase6_outcome?`<p>${esc(a.phase6_outcome)}</p>`:'', a.phase6_detail?`<p>${esc(a.phase6_detail)}</p>`:''].join('');
+  const fields=[
+    ledField('What it is', a.detail ? `<p>${esc(a.detail)}</p>` : ''),
+    ledField('Phase 6 outcome', outcome)
+  ].join('');
+  return `<details class="led" id="${esc(a.id)}"><summary><span class="led-main"><span class="led-status">${esc(a.open?'Open '+a.type:a.type)}</span><span class="led-title">${esc(a.subject)}</span></span><span class="led-chev"></span></summary><div class="led-body">${fields}</div></details>`;
+}
+
+Promise.all([
+  fetch('ipf_overview.md').then(r=>{if(!r.ok)throw new Error('Overview HTTP '+r.status);return r.text()}),
+  fetch('ipf_record.json').then(r=>{if(!r.ok)throw new Error('Data HTTP '+r.status);return r.json()})
+]).then(([overview,db])=>{
+  document.getElementById('publication').innerHTML=renderOverview(overview);
+  const m=db.meta||{}, o=db.leads_outcome||{}, candidates=db.candidates||[], actions=db.actions||[];
+  document.getElementById('leads-n').textContent=`${o.leads} promoted`;
+  document.getElementById('lead-outcome').innerHTML=`<div class="outcome-section"><div class="olead-label">Screening outcome</div><p>${esc(o.statement)}</p></div><div class="outcome-section"><div class="olead-label">Interpretation</div><p class="section-note">${esc(o.not_a_therapeutic_claim)}</p></div><a class="olead-more" href="map.html?data=ipf_record.json#candidates">Explore the candidate screening in the Treatment Map →</a>`;
+  document.getElementById('progression').innerHTML=[
+    [o.candidates_screened,'candidate signals screened'],[o.held_at_verification,'held at verification'],[o.leads,'Research Leads promoted']
+  ].map(([n,label],i)=>`<li class="${i===2?'now':''}"><span class="pn">${esc(n)}</span><span class="pl">${esc(label)}</span></li>`).join('');
+  document.getElementById('candidate-n').textContent=`${candidates.length} screened · ${o.rejected} rejected · ${o.held_at_verification} held`;
+  document.getElementById('candidates').innerHTML=candidates.map(candidateHtml).join('');
+  document.getElementById('action-n').textContent=`${actions.filter(a=>a.open).length} open of ${actions.length}`;
+  document.getElementById('actions').innerHTML=actions.map(actionHtml).join('');
+  document.getElementById('foot').textContent=`Grades describe the state of the evidence, not the biology. Generated ${m.generated||''} · ${m.peer_reviewed?'peer reviewed':'not peer reviewed'}. Full sources and individual records are in the Treatment Map.`;
+}).catch(e=>{
+  document.getElementById('publication').innerHTML=`<div class="disclaimer">Could not load the IPF publication record (${esc(e.message)}). Serve the repository over HTTP; browsers block fetch from file://.</div>`;
+});
+</script>
+<script src="site.js" defer></script>
+</body>
+</html>

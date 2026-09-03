@@ -1,0 +1,188 @@
+{
+ "date": "2026-09-02",
+ "purpose": "Phase 3 retrieval-artefact check on phase-3-labelled 'Poorly studied' entities",
+ "queries": {
+  "ziritaxestat": "(\"idiopathic pulmonary fibrosis\"[tiab] OR \"Idiopathic Pulmonary Fibrosis\"[MeSH]) AND (ziritaxestat OR GLPG1690 OR ISABELA) AND (randomized[tiab] OR randomised[tiab] OR trial[tiab] OR \"phase 3\"[tiab] OR \"phase 2\"[tiab])",
+  "deupirfenidone": "(\"idiopathic pulmonary fibrosis\"[tiab] OR \"Idiopathic Pulmonary Fibrosis\"[MeSH]) AND (deupirfenidone OR LYT-100 OR ELEVATE) AND (randomized[tiab] OR randomised[tiab] OR trial[tiab] OR \"phase 3\"[tiab] OR \"phase 2\"[tiab])",
+  "admilparant (BMS-986278)": "(\"idiopathic pulmonary fibrosis\"[tiab] OR \"Idiopathic Pulmonary Fibrosis\"[MeSH]) AND (admilparant OR \"BMS-986278\") AND (randomized[tiab] OR randomised[tiab] OR trial[tiab] OR \"phase 3\"[tiab] OR \"phase 2\"[tiab])",
+  "INS018_055": "(\"idiopathic pulmonary fibrosis\"[tiab] OR \"Idiopathic Pulmonary Fibrosis\"[MeSH]) AND (INS018_055 OR rentosertib) AND (randomized[tiab] OR randomised[tiab] OR trial[tiab] OR \"phase 3\"[tiab] OR \"phase 2\"[tiab])",
+  "lansoprazole": "(\"idiopathic pulmonary fibrosis\"[tiab] OR \"Idiopathic Pulmonary Fibrosis\"[MeSH]) AND (lansoprazole OR \"proton pump inhibitor\") AND (randomized[tiab] OR randomised[tiab] OR trial[tiab] OR \"phase 3\"[tiab] OR \"phase 2\"[tiab])",
+  "azathioprine": "(\"idiopathic pulmonary fibrosis\"[tiab] OR \"Idiopathic Pulmonary Fibrosis\"[MeSH]) AND azathioprine AND (randomized[tiab] OR randomised[tiab] OR trial[tiab] OR \"phase 3\"[tiab] OR \"phase 2\"[tiab])",
+  "minocycline": "(\"idiopathic pulmonary fibrosis\"[tiab] OR \"Idiopathic Pulmonary Fibrosis\"[MeSH]) AND minocycline AND (randomized[tiab] OR randomised[tiab] OR trial[tiab] OR \"phase 3\"[tiab] OR \"phase 2\"[tiab])",
+  "AK3280": "(\"idiopathic pulmonary fibrosis\"[tiab] OR \"Idiopathic Pulmonary Fibrosis\"[MeSH]) AND AK3280 AND (randomized[tiab] OR randomised[tiab] OR trial[tiab] OR \"phase 3\"[tiab] OR \"phase 2\"[tiab])",
+  "ART-123": "(\"idiopathic pulmonary fibrosis\"[tiab] OR \"Idiopathic Pulmonary Fibrosis\"[MeSH]) AND (\"ART-123\" OR thrombomodulin) AND (randomized[tiab] OR randomised[tiab] OR trial[tiab] OR \"phase 3\"[tiab] OR \"phase 2\"[tiab])",
+  "EZ-2053": "(\"idiopathic pulmonary fibrosis\"[tiab] OR \"Idiopathic Pulmonary Fibrosis\"[MeSH]) AND \"EZ-2053\" AND (randomized[tiab] OR randomised[tiab] OR trial[tiab] OR \"phase 3\"[tiab] OR \"phase 2\"[tiab])",
+  "HEC585": "(\"idiopathic pulmonary fibrosis\"[tiab] OR \"Idiopathic Pulmonary Fibrosis\"[MeSH]) AND HEC585 AND (randomized[tiab] OR randomised[tiab] OR trial[tiab] OR \"phase 3\"[tiab] OR \"phase 2\"[tiab])",
+  "HSK44459": "(\"idiopathic pulmonary fibrosis\"[tiab] OR \"Idiopathic Pulmonary Fibrosis\"[MeSH]) AND HSK44459 AND (randomized[tiab] OR randomised[tiab] OR trial[tiab] OR \"phase 3\"[tiab] OR \"phase 2\"[tiab])",
+  "NAL ER": "(\"idiopathic pulmonary fibrosis\"[tiab] OR \"Idiopathic Pulmonary Fibrosis\"[MeSH]) AND (\"nalbuphine\" OR \"NAL ER\") AND (randomized[tiab] OR randomised[tiab] OR trial[tiab] OR \"phase 3\"[tiab] OR \"phase 2\"[tiab])",
+  "TDI01": "(\"idiopathic pulmonary fibrosis\"[tiab] OR \"Idiopathic Pulmonary Fibrosis\"[MeSH]) AND TDI01 AND (randomized[tiab] OR randomised[tiab] OR trial[tiab] OR \"phase 3\"[tiab] OR \"phase 2\"[tiab])",
+  "sodium pyruvate (nasal)": "(\"idiopathic pulmonary fibrosis\"[tiab] OR \"Idiopathic Pulmonary Fibrosis\"[MeSH]) AND \"sodium pyruvate\" AND (randomized[tiab] OR randomised[tiab] OR trial[tiab] OR \"phase 3\"[tiab] OR \"phase 2\"[tiab])",
+  "co-trimoxazole or doxycycline": "(\"idiopathic pulmonary fibrosis\"[tiab] OR \"Idiopathic Pulmonary Fibrosis\"[MeSH]) AND (doxycycline OR \"CleanUP-IPF\" OR \"antimicrobial therapy\") AND (randomized[tiab] OR randomised[tiab] OR trial[tiab] OR \"phase 3\"[tiab] OR \"phase 2\"[tiab])",
+  "methylprednisolone/prednisone": "(\"idiopathic pulmonary fibrosis\"[tiab] OR \"Idiopathic Pulmonary Fibrosis\"[MeSH]) AND (methylprednisolone OR prednisone) AND (randomized[tiab] OR randomised[tiab] OR trial[tiab] OR \"phase 3\"[tiab] OR \"phase 2\"[tiab])"
+ },
+ "extra_queries": {
+  "ziritaxestat_isabela": "(\"idiopathic pulmonary fibrosis\"[tiab] OR \"Idiopathic Pulmonary Fibrosis\"[MeSH]) AND (ISABELA OR ziritaxestat OR GLPG1690) AND (phase[tiab] OR randomized[ti] OR trial[ti])",
+  "deupirfenidone_elevate": "(deupirfenidone OR \"LYT-100\" OR ELEVATE) AND (pulmonary fibrosis[tiab])",
+  "admilparant2": "(admilparant OR \"BMS-986278\") AND fibrosis[tiab]"
+ },
+ "pmids_returned": {
+  "ziritaxestat": [
+   "39114938",
+   "31547058",
+   "37159034",
+   "31179008",
+   "29792287",
+   "40610052",
+   "34633152",
+   "38963152",
+   "31012984",
+   "40255293",
+   "30953319",
+   "38288082"
+  ],
+  "deupirfenidone": [
+   "40387033",
+   "35001525",
+   "38762797",
+   "24836312",
+   "21571362",
+   "39388147",
+   "34895203",
+   "42276742",
+   "39114938",
+   "38843105",
+   "40697404",
+   "33798455"
+  ],
+  "admilparant (BMS-986278)": [
+   "39393084",
+   "39114938",
+   "40769405",
+   "40210090",
+   "34969771",
+   "42458495",
+   "35090952",
+   "42094953",
+   "34974053"
+  ],
+  "INS018_055": [
+   "40461817",
+   "38459338",
+   "40820280",
+   "42115887"
+  ],
+  "lansoprazole": [
+   "42155010",
+   "30610155",
+   "38606271",
+   "34166834",
+   "39909521",
+   "24429201"
+  ],
+  "azathioprine": [
+   "37709661",
+   "36470416",
+   "35145039",
+   "39822854",
+   "24669297",
+   "42432856",
+   "12917947",
+   "20518722",
+   "20824834",
+   "15955138",
+   "26836914",
+   "14720059"
+  ],
+  "minocycline": [],
+  "AK3280": [],
+  "ART-123": [
+   "31094045",
+   "33957435",
+   "32228230",
+   "40526976",
+   "25811735",
+   "30835911",
+   "32228231",
+   "31917621",
+   "32122329",
+   "34326155",
+   "32423894",
+   "32537001"
+  ],
+  "EZ-2053": [],
+  "HEC585": [
+   "42373389"
+  ],
+  "HSK44459": [],
+  "NAL ER": [
+   "41569557",
+   "38320144",
+   "38320149",
+   "42396792"
+  ],
+  "TDI01": [],
+  "sodium pyruvate (nasal)": [],
+  "co-trimoxazole or doxycycline": [
+   "38030064",
+   "42155010",
+   "38051927",
+   "33974018",
+   "32164673",
+   "34526011",
+   "21886950",
+   "20442842"
+  ],
+  "methylprednisolone/prednisone": [
+   "34506761",
+   "41207313",
+   "40154560",
+   "12917947",
+   "20824834",
+   "36889516",
+   "25202034",
+   "26111071",
+   "16306520",
+   "26843176",
+   "24836309",
+   "16002271"
+  ]
+ },
+ "reclassified": {
+  "ziritaxestat": {
+   "pmid": "37159034",
+   "verdict_class": "Failed"
+  },
+  "deupirfenidone": {
+   "pmid": "42085224",
+   "verdict_class": "Uncertain"
+  },
+  "admilparant (BMS-986278)": {
+   "pmid": "39393084",
+   "verdict_class": "Uncertain"
+  },
+  "INS018_055": {
+   "pmid": "40461817",
+   "verdict_class": "Uncertain"
+  },
+  "ART-123": {
+   "pmid": "31917621",
+   "verdict_class": "Failed"
+  },
+  "NAL ER": {
+   "pmid": "41569557",
+   "verdict_class": "Works"
+  }
+ },
+ "not_reclassified": [
+  "lansoprazole",
+  "azathioprine",
+  "minocycline",
+  "AK3280",
+  "EZ-2053",
+  "HEC585",
+  "HSK44459",
+  "TDI01",
+  "sodium pyruvate (nasal)",
+  "methylprednisolone/prednisone"
+ ]
+}

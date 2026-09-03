@@ -1,0 +1,351 @@
+/* Therapeutics Atlas — shared styles for the home and disease-overview pages.
+   The treatment-map explorer (map.html) carries its own copy of these tokens so it stays a single
+   self-contained file. Self-contained by design: system fonts only, no external requests, no build. */
+:root{
+  --serif:"Iowan Old Style","Palatino Linotype",Palatino,"Book Antiqua",Georgia,"Times New Roman",serif;
+  --sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+  --mono:ui-monospace,SFMono-Regular,Menlo,"Roboto Mono",monospace;
+
+  --bg:#f6f5f2; --card:#fff; --card-2:#fbfaf8;
+  --ink:#1b1e22; --ink-soft:#3b424a; --mute:#6a7076; --faint:#9aa0a6;
+  --line:#e6e2db; --line-soft:#efece6; --line-strong:#d9d4cb;
+  --accent:#1f4f82; --accent-soft:#eef2f8;
+  --warn:#7d5300; --warnbg:#fbf3df; --warnline:#ecdcae;
+
+  --maxw:840px;
+  --shadow:0 1px 2px rgba(24,26,30,.03), 0 1px 1px rgba(24,26,30,.02);
+  --shadow-h:0 3px 14px rgba(31,79,130,.07);
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--ink);
+  font:16px/1.62 var(--sans);border-top:3px solid var(--accent);
+  -webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+a{color:var(--accent);text-decoration-thickness:.5px;text-underline-offset:2px}
+a:hover{color:var(--accent)}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 24px}
+
+/* ---------- masthead / identity ---------- */
+.top{background:var(--card);border-bottom:1px solid var(--line)}
+.top .wrap{padding:14px 24px}
+.brandbar{display:flex;align-items:center;gap:12px;min-height:26px}
+.wordmark{font:600 16px/1 var(--serif);color:var(--ink);text-decoration:none;letter-spacing:.005em;
+  display:inline-flex;align-items:center;gap:8px}
+.wordmark .brand-logo{width:32px;height:32px;border-radius:8px;object-fit:cover;flex:0 0 auto}
+.crumbs{font-size:13px;color:var(--mute)}
+.crumbs a{color:var(--mute);text-decoration:none}
+.crumbs a:hover{color:var(--accent);text-decoration:underline}
+.crumbs .sep{margin:0 7px;color:var(--faint)}
+.crumbs .here{color:var(--ink-soft)}
+
+/* ---------- generic ---------- */
+main{padding:0 0 72px}
+.masthead{padding:40px 0 30px;border-bottom:1px solid var(--line)}
+h1{font:600 30px/1.18 var(--serif);letter-spacing:-.008em;margin:0 0 10px;color:var(--ink)}
+.lede{color:var(--ink-soft);font-size:17px;line-height:1.5;margin:0;max-width:60ch}
+h2{font:600 20px/1.3 var(--serif);letter-spacing:-.005em;margin:34px 0 6px;color:var(--ink)}
+h3{font:600 15px/1.4 var(--sans);margin:24px 0 4px}
+p{margin:.6em 0}
+.eyebrow{font:600 11.5px/1 var(--sans);letter-spacing:.11em;text-transform:uppercase;color:var(--faint);margin:0 0 12px}
+.section-note{color:var(--mute);font-size:13.5px;margin:2px 0 16px}
+hr{border:0;border-top:1px solid var(--line);margin:40px 0}
+code{font:12.5px/1 var(--mono);background:#efece6;padding:1.5px 5px;border-radius:4px;color:var(--ink-soft)}
+
+.disclaimer{background:var(--warnbg);border:1px solid var(--warnline);color:var(--warn);
+  border-radius:7px;padding:10px 14px;font-size:12.5px;line-height:1.5;margin:16px 0}
+.disclaimer b{font-weight:650}
+.disclaimer.slim{background:none;border:0;border-left:2px solid var(--warnline);border-radius:0;
+  padding:2px 0 2px 12px;color:var(--mute);margin:14px 0}
+.disclaimer.slim b{color:var(--warn)}
+
+/* ---------- home: disease list as the hero ---------- */
+.home-intro{max-width:760px;margin:0 auto;padding:64px 0 16px}
+.home-intro h1{max-width:760px;margin:0;font-size:52px;line-height:1.08;letter-spacing:-.022em}
+.home-intro h1 span{display:block}
+.home-intro h1 span+span{margin-left:0;color:var(--accent)}
+.home-support{margin-top:30px}
+.home-intro .lede{max-width:66ch;margin:0;font-size:18px;line-height:1.58;color:var(--ink-soft)}
+.home-meta{max-width:none;margin:12px 0 0;font:13.5px/1.55 var(--serif);color:var(--mute);
+  white-space:nowrap}
+
+.diseases-head{display:flex;align-items:baseline;justify-content:space-between;gap:16px;
+  margin:24px 0 17px;padding-top:28px;border-top:1px solid var(--line)}
+.diseases-head h2{margin:0}
+.diseases{list-style:none;margin:0;padding:0;display:grid;gap:14px}
+
+.dcard{display:block;background:var(--card);border:1px solid var(--line);border-radius:11px;
+  padding:22px 24px;text-decoration:none;color:inherit;box-shadow:var(--shadow);
+  transition:border-color .14s ease, box-shadow .14s ease}
+.dcard:hover{border-color:var(--accent);box-shadow:var(--shadow-h)}
+.dcard .head{display:flex;align-items:baseline;gap:14px}
+.dcard .dname{font:600 23px/1.15 var(--serif);letter-spacing:-.008em;color:var(--ink)}
+.dcard .open{margin-left:auto;font-size:13.5px;color:var(--accent);white-space:nowrap}
+.dcard:hover .open{color:var(--accent)}
+.dcard .blurb{color:var(--ink-soft);font-size:14.5px;line-height:1.55;margin:12px 0 15px;max-width:64ch}
+.dcard .status{display:inline-flex;align-items:baseline;gap:6px;margin-bottom:13px;
+  font:500 11.5px/1.4 var(--sans);letter-spacing:.035em;color:var(--mute)}
+.dcard .status-sep{font-weight:400;color:var(--line-strong)}
+.dcard .status-detail{font-weight:600;color:var(--accent)}
+.dcard .stats{display:flex;flex-wrap:wrap;gap:5px 0;font-size:13px;color:var(--mute);
+  border-top:1px solid var(--line-soft);padding-top:12px}
+.dcard .stats span{padding:0 16px;border-right:1px solid var(--line)}
+.dcard .stats span:first-child{padding-left:0}
+.dcard .stats span:last-child{border-right:0}
+.dcard .stats b{color:var(--ink);font-weight:600;font-variant-numeric:tabular-nums}
+
+/* home: about + principles, deliberately secondary */
+.atlas-growth{display:flex;align-items:baseline;justify-content:flex-start;gap:24px;margin:25px 0 42px}
+.atlas-growth p{margin:0;color:var(--mute);font-size:13px;line-height:1.55}
+.atlas-growth .growth-lead{font:600 16px/1.45 var(--serif);color:var(--ink-soft)}
+.atlas-growth p:last-child{text-align:left}
+.about{margin-top:0;padding-top:28px;border-top:1px solid var(--line)}
+.about>h2{margin-top:0}
+.about .lede,.about p{color:var(--ink-soft);font-size:14.5px;line-height:1.62}
+.about>.lede{max-width:82ch;text-wrap:pretty}
+.about h2{font-size:17px}
+.cols{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:30px 44px;margin-top:24px}
+.cols .col h3{margin-top:0}
+@media (min-width:681px){
+  .cols .col{display:flex;flex-direction:column}
+  ol.layers{display:flex;flex:1;flex-direction:column}
+  ol.layers li{flex:1}
+  ol.layers li:last-child{flex:0 0 auto}
+}
+ul.plain{margin:.3em 0;padding-left:1.1em;color:var(--ink-soft);font-size:14px}
+ul.plain li{margin:.4em 0;padding-left:.15em}
+ul.plain li::marker{color:var(--faint)}
+
+/* Three layers — connected numbered stages (a restrained timeline, not cards) */
+ol.layers{list-style:none;margin:12px 0 0;padding:0}
+ol.layers li{position:relative;padding:0 0 20px 40px;min-height:30px}
+ol.layers li:last-child{padding-bottom:0}
+ol.layers li::before{content:"";position:absolute;left:14.5px;top:29px;bottom:1px;width:1px;background:var(--line-strong)}
+ol.layers li:last-child::before{display:none}
+ol.layers .ln{position:absolute;left:0;top:0;width:30px;height:30px;border:1px solid var(--line-strong);
+  border-radius:50%;display:flex;align-items:center;justify-content:center;
+  font:600 13px/1 var(--serif);color:var(--accent);background:var(--card)}
+ol.layers h4{margin:5px 0 3px;font:600 14.5px/1.3 var(--sans);color:var(--ink)}
+ol.layers .lc p{margin:0;font-size:13.5px;line-height:1.5;color:var(--ink-soft)}
+
+/* Working principles — numbered, hairline-separated, easy to scan */
+ol.principles{list-style:none;margin:12px 0 0;padding:0;counter-reset:pr}
+ol.principles li{counter-increment:pr;position:relative;padding:12px 0 12px 34px;
+  border-top:1px solid var(--line-soft);font-size:13.5px;line-height:1.55;color:var(--ink-soft)}
+ol.principles li:first-child{border-top:0;padding-top:2px}
+ol.principles li::before{content:counter(pr,decimal-leading-zero);position:absolute;left:0;top:13px;
+  font:600 11px/1 var(--mono);color:var(--faint);letter-spacing:.03em}
+ol.principles li:first-child::before{top:3px}
+
+/* ---------- overview: flat compact evidence blocks (read straight through) ---------- */
+.ov-intro{color:var(--ink-soft);font-size:15px;line-height:1.6;margin:22px 0 6px}
+
+.ov-block{padding:24px 0;border-top:1px solid var(--line)}
+.ov-title{font:600 18px/1.3 var(--serif);color:var(--ink);letter-spacing:-.005em;margin:0 0 9px}
+.ov-sum{margin:0 0 15px;font-size:14.5px;line-height:1.62;color:var(--ink-soft);max-width:70ch}
+.ov-more{display:inline-block;margin-top:15px;font:600 13px/1 var(--sans);color:var(--accent);text-decoration:none}
+.ov-more:hover{color:var(--accent);text-decoration:underline}
+
+/* publication Overview — source-faithful prose and data tables */
+.publication{margin-top:34px}
+.publication>p{font-size:14.5px;line-height:1.62;color:var(--ink-soft)}
+.publication .ov-block p,.publication .ov-block li{font-size:14px;line-height:1.62;color:var(--ink-soft)}
+.publication .ov-block ul{padding-left:1.25em;margin:12px 0}
+.publication .ov-block li{margin:7px 0}
+.table-wrap{overflow-x:auto;margin:15px 0 18px;border:1px solid var(--line);border-radius:8px;background:var(--card)}
+.publication table{border-collapse:collapse;width:100%;min-width:620px;font-size:12.5px;line-height:1.45}
+.publication th,.publication td{padding:9px 11px;text-align:left;vertical-align:top;border-bottom:1px solid var(--line-soft)}
+.publication th{font-weight:600;color:var(--ink);background:var(--card-2)}
+.publication td{color:var(--ink-soft)}
+.publication tbody tr:last-child td{border-bottom:0}
+.outcome-box{border-left:3px solid var(--accent);background:var(--card);padding:14px 18px;margin:16px 0 18px;
+  border-radius:0 8px 8px 0;box-shadow:var(--shadow);font-size:14px;line-height:1.6;color:var(--ink-soft)}
+.outcome-box p{margin:0 0 8px}.outcome-box p:last-child{margin-bottom:0}
+.outcome-section+.outcome-section{margin-top:12px}
+.outcome-section .olead-label{margin-bottom:3px}
+
+/* evidence-tier distribution — a thin proportional bar + legend */
+.dist{max-width:540px}
+.distbar{display:flex;height:6px;border-radius:4px;overflow:hidden;background:var(--line-soft)}
+.distbar .seg{min-width:5px}
+.distleg{display:flex;flex-wrap:wrap;gap:3px 14px;margin-top:9px;font-size:11.5px;color:var(--mute)}
+.distleg .lg{display:inline-flex;align-items:center;gap:6px}
+.distleg b{color:var(--ink-soft);font-weight:600;font-variant-numeric:tabular-nums}
+.lgdot{width:8px;height:8px;border-radius:50%;flex:0 0 auto}
+.t-est{background:#7cb695}.t-prob{background:#6f9bcb}.t-unc{background:#e0b567}
+.t-hyp{background:#a99cd0}.t-unk{background:#b9bfc5}
+
+/* ---------- research leads ---------- */
+.leads-sec{margin-top:46px}
+.leads-h{margin:0 0 7px}
+.leads-h .n{font:500 13px/1 var(--sans);color:var(--mute);margin-left:8px}
+.leads-note{margin:0 0 20px;font-size:14px;line-height:1.55;color:var(--ink-soft);max-width:70ch}
+
+/* progression: candidates -> promoted -> still open */
+.progression{list-style:none;display:flex;flex-wrap:wrap;align-items:center;margin:0 0 28px;
+  padding:15px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.progression li{display:flex;align-items:center;gap:12px}
+.progression li::after{content:"\2192";color:var(--line-strong);margin:0 20px;font-size:14px}
+.progression li:last-child::after{content:""}
+.progression .pn{font:600 22px/1 var(--serif);color:var(--ink);font-variant-numeric:tabular-nums;
+  min-width:1.5em;text-align:right}
+.progression .pl{font-size:12.5px;line-height:1.35;color:var(--mute);max-width:16ch}
+.progression li.now .pn{color:var(--accent)}
+.progression li.now .pl{color:var(--ink-soft)}
+
+/* open leads — the actionable frontier */
+.olead{background:var(--card);border:1px solid var(--line-strong);border-left:3px solid var(--accent);
+  border-radius:0 10px 10px 0;padding:20px 22px 18px;margin:0 0 14px;box-shadow:var(--shadow)}
+.olead-head{display:flex;align-items:center;gap:11px;flex-wrap:wrap}
+.research-status{display:inline-flex;align-items:baseline;gap:6px;font:600 10px/1.4 var(--sans);
+  letter-spacing:.075em;text-transform:uppercase;color:var(--faint)}
+.research-status .primary{color:var(--mute)}
+.research-status.is-open .primary{color:var(--accent)}
+.research-status .separator{font-weight:400;color:var(--line-strong);letter-spacing:0}
+.research-status .secondary{font-weight:500;color:var(--faint)}
+.olead-title{font:600 18px/1.32 var(--serif);color:var(--ink);letter-spacing:-.005em;margin:10px 0 15px}
+.olead-row{display:grid;grid-template-columns:136px 1fr;gap:16px;padding:11px 0;
+  border-top:1px solid var(--line-soft)}
+.olead-label{font:600 10.5px/1.6 var(--sans);letter-spacing:.08em;text-transform:uppercase;
+  color:var(--faint);padding-top:2px}
+.olead-body{font-size:13.5px;line-height:1.55;color:var(--ink-soft)}
+.olead-body p{margin:0 0 7px}
+.olead-body p:last-child{margin:0}
+.olead-more{display:inline-block;margin-top:15px;font:600 12.5px/1 var(--sans);color:var(--accent);
+  text-decoration:none}
+.olead-more:hover{color:var(--accent);text-decoration:underline}
+
+/* other investigated leads — a quiet research ledger */
+.ledger-h{font:600 14.5px/1.4 var(--sans);color:var(--ink);margin:34px 0 3px}
+.ledger-h .n{font-weight:500;color:var(--faint);margin-left:7px}
+.ledger-note{margin:0 0 10px;font-size:12.5px;line-height:1.5;color:var(--mute);max-width:70ch}
+.ledger{border-top:1px solid var(--line)}
+.overview-disclosure{margin-top:28px}
+.overview-disclosure>summary{list-style:none;cursor:pointer;display:flex;align-items:center;gap:16px;
+  border-bottom:1px solid var(--line);padding:6px 3px 10px;user-select:none}
+.overview-disclosure>summary::-webkit-details-marker{display:none}
+.overview-disclosure>summary:hover{color:var(--accent)}
+.overview-disclosure>summary .disclosure-copy{display:block;flex:1;min-width:0}
+.overview-disclosure>summary .ledger-h{display:block;margin:0}
+.disclosure-hint{display:block;margin-top:3px;font-size:12px;line-height:1.45;color:var(--mute)}
+.overview-disclosure>.ledger-note{margin-top:10px}
+.overview-disclosure>summary .led-chev{transform:rotate(45deg)}
+.overview-disclosure[open]>summary .led-chev{transform:rotate(225deg)}
+details.led{border-bottom:1px solid var(--line)}
+details.led>summary{list-style:none;cursor:pointer;display:grid;grid-template-columns:1fr auto;
+  gap:16px;align-items:center;padding:13px 14px;user-select:none}
+details.led>summary::-webkit-details-marker{display:none}
+details.led>summary:hover{background:var(--card-2)}
+.led-main{min-width:0}
+.led-status{display:block;font:600 10px/1.5 var(--sans);letter-spacing:.07em;text-transform:uppercase;
+  color:var(--faint)}
+.led-title{display:block;margin-top:2px;font-size:13.5px;line-height:1.45;color:var(--ink-soft)}
+.led-chev{width:7px;height:7px;border-right:1.5px solid var(--faint);border-bottom:1.5px solid var(--faint);
+  transform:rotate(-45deg);transition:transform .15s ease}
+details.led[open] .led-chev{transform:rotate(45deg)}
+.led-body{padding:6px 14px 16px;max-width:80ch}
+.led-field{display:grid;grid-template-columns:132px 1fr;gap:14px;padding:9px 0;
+  border-top:1px solid var(--line-soft)}
+.led-field:first-child{border-top:0;padding-top:3px}
+.led-flabel{font:600 10px/1.6 var(--sans);letter-spacing:.07em;text-transform:uppercase;color:var(--faint)}
+.led-fval{font-size:13px;line-height:1.6;color:var(--ink-soft)}
+.led-fval p{margin:0 0 7px}
+.led-fval p:last-child{margin:0}
+.led-foot{display:flex;align-items:center;gap:10px 16px;flex-wrap:wrap;margin-top:13px;padding-top:12px;
+  border-top:1px solid var(--line-soft)}
+.led-foot a{font:600 12px/1 var(--sans);color:var(--accent);text-decoration:none}
+.led-foot a:hover{text-decoration:underline}
+
+/* floating back-to-top control (injected by site.js) */
+.to-top{position:fixed;right:22px;bottom:22px;z-index:60;width:40px;height:40px;border-radius:50%;
+  background:var(--card);border:1px solid var(--line-strong);color:var(--ink-soft);cursor:pointer;
+  box-shadow:var(--shadow-h);display:flex;align-items:center;justify-content:center;
+  transition:border-color .14s ease,color .14s ease,opacity .18s ease}
+.to-top:hover{border-color:var(--accent);color:var(--accent)}
+.to-top[hidden]{display:none}
+.tt-arrow{width:9px;height:9px;border-top:2px solid currentColor;border-left:2px solid currentColor;
+  transform:rotate(45deg);margin-top:3px}
+
+@media (max-width:620px){
+  .olead-row{grid-template-columns:1fr;gap:5px}
+  .led-field{grid-template-columns:1fr;gap:3px}
+  .to-top{right:16px;bottom:16px}
+}
+
+/* ---------- research archive / provenance (methods-appendix style) ---------- */
+.prov{margin-top:16px;border-top:1px solid var(--line)}
+.prov-row{display:grid;grid-template-columns:150px 1fr;gap:18px;padding:16px 0;
+  border-bottom:1px solid var(--line)}
+.prov-label{font:600 11px/1.5 var(--sans);letter-spacing:.08em;text-transform:uppercase;
+  color:var(--faint);padding-top:3px}
+.prov-body{font-size:13.5px;line-height:1.55;color:var(--ink-soft)}
+.prov-body>a{text-decoration:none;font-weight:600}
+.prov-body>a:hover{text-decoration:underline}
+.prov-d{color:var(--mute);font-weight:400}
+.prov-note{margin:11px 0 0;font-size:12.5px;line-height:1.5;color:var(--mute)}
+.prov-note a{color:var(--mute)}
+
+/* research trail — a vertical, connected phase sequence (appendix timeline) */
+ol.phase-trail{list-style:none;margin:4px 0 0;padding:0}
+ol.phase-trail li{position:relative;padding:0 0 15px 30px}
+ol.phase-trail li:last-child{padding-bottom:0}
+ol.phase-trail li::before{content:"";position:absolute;left:10px;top:21px;bottom:-1px;width:1px;background:var(--line-strong)}
+ol.phase-trail li:last-child::before{display:none}
+.pt-main{display:inline-flex;align-items:center;gap:11px;text-decoration:none;color:var(--ink-soft);font-size:13.5px}
+.pt-main:hover{color:var(--accent)}
+.pt-n{position:absolute;left:0;top:0;box-sizing:border-box;width:21px;height:21px;border:1px solid var(--line-strong);
+  border-radius:50%;display:flex;align-items:center;justify-content:center;font:600 10.5px/1 var(--mono);
+  color:var(--accent);background:var(--card)}
+.pt-main:hover .pt-n{border-color:var(--accent);background:var(--accent-soft)}
+.pt-sub{display:inline-block;margin-top:6px;font-size:12px;color:var(--mute);text-decoration:none}
+.pt-sub::before{content:"\21B3";color:var(--faint);margin-right:6px}
+.pt-sub:hover{color:var(--accent)}
+
+@media (max-width:560px){
+  .prov-row{grid-template-columns:1fr;gap:8px}
+  .prov-label{padding-top:0}
+}
+
+/* ---------- badges ---------- */
+.badge{display:inline-block;font:500 11px/1.35 var(--sans);padding:2px 8px;border-radius:20px;
+  border:1px solid var(--line);background:#f2f3f4;color:#3d464f;white-space:nowrap;vertical-align:baseline;
+  letter-spacing:.01em}
+.b-est{background:#e9f3ec;border-color:#cbe2d3;color:#215c3a}
+.b-prob{background:#eaf1f8;border-color:#cddcef;color:#204f80}
+.b-unc{background:#fbf1de;border-color:#eeddb0;color:#7d5300}
+.b-hyp{background:#f1eef7;border-color:#ddd5ed;color:#4c3c76}
+.b-unk{background:#f0f1f2;border-color:#e0e2e5;color:#565f68}
+.b-neg{background:#f8ecec;border-color:#eccece;color:#7a2f2f}
+
+/* ---------- call to action ---------- */
+.cta-band{display:flex;align-items:center;justify-content:space-between;gap:18px;flex-wrap:wrap;
+  background:var(--card);border:1px solid var(--line);border-radius:10px;padding:16px 20px;
+  margin:8px 0 4px;box-shadow:var(--shadow)}
+.cta-band + #blocks,.cta-band + .publication{margin-top:24px}
+.cta-band .t{font:600 15px/1.35 var(--serif);color:var(--ink)}
+.cta-band .d{font-size:13px;color:var(--mute);margin-top:2px}
+.cta{display:inline-block;background:var(--accent);color:#fff;text-decoration:none;
+  font:600 14px/1 var(--sans);padding:11px 19px;border-radius:8px;white-space:nowrap;
+  transition:background .14s ease}
+.cta:hover{background:var(--accent);color:#fff}
+
+footer{border-top:1px solid var(--line);color:var(--mute);font-size:12.5px;line-height:1.55;
+  padding:22px 0 44px;margin-top:8px}
+footer .wrap{padding-top:0}
+
+@media (max-width:680px){
+  .cols{grid-template-columns:1fr;gap:6px 0}
+  h1{font-size:26px}
+  .home-intro{max-width:none;padding:42px 0 22px}
+  .home-intro h1{font-size:34px;line-height:1.12;margin-bottom:22px}
+  .home-intro h1 span+span{margin:5px 0 0}
+  .home-support{margin-top:0}
+  .home-intro .lede{margin-left:0;font-size:16px}
+  .hero-copy-break{display:none}
+  .hero-copy-second::before{content:" "}
+  .home-meta{max-width:none;margin-top:11px;white-space:normal}
+  .diseases-head{margin-top:30px}
+  .dcard .stats span{padding:0 12px}
+  .atlas-growth{display:block}
+  .atlas-growth .growth-lead{margin-bottom:2px}
+  .atlas-growth p:last-child{text-align:left}
+}

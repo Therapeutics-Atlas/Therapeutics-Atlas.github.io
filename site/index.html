@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Therapeutics Atlas — Mapping what we know. Finding what comes next.</title>
+<meta name="description" content="Therapeutics Atlas systematically maps what humanity knows about treating diseases with major unmet therapeutic needs.">
+<link rel="icon" type="image/png" href="favicon-rounded.png">
+<link rel="stylesheet" href="site.css">
+</head>
+<body>
+<div class="top">
+  <div class="wrap">
+    <div class="brandbar">
+      <a class="wordmark" href="index.html"><img class="brand-logo" src="navbar-logo.png" alt="">Therapeutics Atlas</a>
+    </div>
+  </div>
+</div>
+
+<main>
+  <div class="wrap">
+
+    <section class="home-intro">
+      <h1><span>Mapping what we know.</span><span>Finding what comes next.</span></h1>
+      <div class="home-support">
+        <p class="lede">Mapping treatment evidence and unanswered<br class="hero-copy-break"><span class="hero-copy-second">questions across diseases with major unmet needs.</span></p>
+        <p class="home-meta"><em>Research record, not medical advice. Research Leads are questions, not treatment recommendations.</em></p>
+      </div>
+    </section>
+
+    <div class="diseases-head">
+      <h2>Disease records</h2>
+    </div>
+    <ul class="diseases" id="diseases"></ul>
+    <div class="atlas-growth">
+      <p class="growth-lead">The Atlas is still growing.</p>
+      <p>More disease records will be added as they are studied.</p>
+    </div>
+
+    <section class="about">
+      <h2>About the project</h2>
+      <p class="lede">Each record is built to be examined, not taken on trust. Every load-bearing claim is
+        traced to a primary source where possible; negative and null results are kept rather than
+        discarded; and contradictions are shown rather than resolved away. AI is used as a research
+        assistant, not as a doctor.</p>
+
+      <div class="cols">
+        <div class="col">
+          <h3>Three layers</h3>
+          <ol class="layers">
+            <li>
+              <span class="ln">1</span>
+              <div class="lc"><h4>Treatment Map</h4>
+                <p>What works, what does not, what is uncertain, and what is unknown.</p></div>
+            </li>
+            <li>
+              <span class="ln">2</span>
+              <div class="lc"><h4>Research Leads</h4>
+                <p>Specific unanswered questions or signals that survive critical review.</p></div>
+            </li>
+            <li>
+              <span class="ln">3</span>
+              <div class="lc"><h4>Validation</h4>
+                <p>Only where a lead becomes strong enough to justify further scientific or clinical
+                  testing.</p></div>
+            </li>
+          </ol>
+        </div>
+        <div class="col">
+          <h3>Working principles</h3>
+          <ol class="principles">
+            <li>Evidence first; where it is insufficient, the record says "we don't know."</li>
+            <li>No treatment is assumed to work from mechanism alone, nor dismissed simply because its
+              mechanism is not fully understood.</li>
+            <li>Modern therapies, repurposed drugs, historical treatments, natural products, and
+              traditional medicine are evaluated by the evidence, not by where they come from.</li>
+            <li>Negative results are results, and are collected deliberately.</li>
+          </ol>
+        </div>
+      </div>
+    </section>
+
+  </div>
+</main>
+
+<footer>
+  <div class="wrap">
+    Therapeutics Atlas — an open, correctable research record. Nothing here has been peer reviewed.
+    The full research trail and structured data live alongside each disease record.
+  </div>
+</footer>
+
+<script>
+/* The disease registry. Adding a disease is one entry here: give it a number, a name, a one-line
+   blurb, an editorial research-status label, the page that opens its overview, and the JSON record
+   whose live counts fill the card. No backend, no build step. */
+const DISEASES = [
+  {
+    id: '001',
+    name: 'Rheumatoid arthritis',
+    status: 'Evidence mapping complete',
+    blurb: 'What is known, disputed, and untested about treating RA — including the interventions ' +
+           'that do not work, and the questions nobody has asked in a form that could answer them.',
+    overview: 'ra.html',
+    data: 'ra_record.json'
+  },
+  {
+    id: '002',
+    name: 'Idiopathic pulmonary fibrosis',
+    status: 'Research cycle complete',
+    blurb: 'What is known, failed, poorly studied, and still unresolved about treating IPF — ' +
+           'including the evidence-access gaps that limit what can be concluded.',
+    overview: 'ipf.html',
+    data: 'ipf_record.json'
+  }
+];
+
+function esc(s){ return String(s==null?'':s).replace(/[&<>"]/g, c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c])); }
+
+/* Render each card immediately with its editorial fields, then fill live numbers from the record's
+   own meta so nothing on this page is a hand-typed statistic that could drift from the data. */
+function cardHtml(d, counts, updated){
+  /* Lead counts stay data-driven across the reference and extended public schemas. */
+  const leads = counts && (counts.leads != null ? counts.leads : counts.research_leads);
+  const openLeads = counts && (counts.open_leads != null ? counts.open_leads : leads);
+  const statusHtml = (openLeads != null)
+    ? `<span>${esc(d.status)}</span><span class="status-sep">·</span><span class="status-detail">${esc(openLeads)} surviving lead${openLeads === 1 ? '' : 's'}</span>`
+    : `<span>${esc(d.status)}</span>`;
+  const stats = counts ? [
+    [counts.references, 'references'],
+    [leads, 'research leads'],
+    [updated || '—', 'updated']
+  ] : [];
+  const statHtml = stats.length
+    ? `<div class="stats">${stats.map(([v,k])=>`<span><b>${esc(v)}</b> ${esc(k)}</span>`).join('')}</div>` : '';
+  return `<a class="dcard" href="${esc(d.overview)}">
+    <div class="head">
+      <div class="dname">${esc(d.name)}</div>
+      <span class="open">Open record →</span>
+    </div>
+    <div class="blurb">${esc(d.blurb)}</div>
+    <div class="status">${statusHtml}</div>
+    ${statHtml}
+  </a>`;
+}
+
+const host = document.getElementById('diseases');
+host.innerHTML = DISEASES.map(d => `<li id="d-${esc(d.id)}">${cardHtml(d, null)}</li>`).join('');
+
+DISEASES.forEach(d => {
+  fetch(d.data)
+    .then(r => { if (!r.ok) throw new Error('HTTP ' + r.status); return r.json(); })
+    .then(db => {
+      const m = db.meta || {};
+      const li = document.getElementById('d-' + d.id);
+      if (li) li.innerHTML = cardHtml(d, m.counts || db.counts || {}, m.generated);
+    })
+    .catch(() => { /* card already shows its editorial fields; live counts simply stay omitted */ });
+});
+</script>
+<script src="site.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Treatment Map — Rheumatoid arthritis · Therapeutics Atlas</title>
+<meta name="description" content="The Therapeutics Atlas treatment map for rheumatoid arthritis: evidence, negative results, conflicts, research leads, corrections, and sources.">
+<link rel="icon" type="image/png" href="favicon-rounded.png">
+<style>
+/* Palette and type mirror site.css so the explorer shares the project's identity while staying a
+   single self-contained file. Layout and density are unchanged — this is the research database. */
+:root{
+  --serif:"Iowan Old Style","Palatino Linotype",Palatino,"Book Antiqua",Georgia,"Times New Roman",serif;
+  --sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+  --mono:ui-monospace,SFMono-Regular,Menlo,"Roboto Mono",monospace;
+  --bg:#f6f5f2; --card:#fff; --card-2:#fbfaf8;
+  --ink:#1b1e22; --ink-soft:#3b424a; --mute:#6a7076; --faint:#9aa0a6;
+  --line:#e6e2db; --line-soft:#efece6; --line-strong:#d9d4cb;
+  --accent:#1f4f82; --accent-soft:#eef2f8;
+  --warn:#7d5300; --warnbg:#fbf3df; --warnline:#ecdcae;
+  --shadow:0 1px 2px rgba(24,26,30,.03), 0 1px 1px rgba(24,26,30,.02);
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);border-top:3px solid var(--accent);
+  font:15px/1.55 var(--sans);-webkit-font-smoothing:antialiased}
+a{color:var(--accent);text-underline-offset:2px}
+a:hover{color:var(--accent)}
+
+.top{background:var(--card);border-bottom:1px solid var(--line)}
+.top .bar{max-width:1400px;margin:0 auto;padding:13px 22px;display:flex;align-items:center;gap:12px}
+.wordmark{font:600 16px/1 var(--serif);color:var(--ink);text-decoration:none;display:inline-flex;align-items:center;gap:8px}
+.wordmark .brand-logo{width:32px;height:32px;border-radius:8px;object-fit:cover;flex:0 0 auto}
+.crumbs{font-size:13px;color:var(--mute)}
+.crumbs a{color:var(--mute);text-decoration:none}
+.crumbs a:hover{color:var(--accent);text-decoration:underline}
+.crumbs .sep{margin:0 7px;color:var(--faint)}
+.crumbs .here{color:var(--ink-soft)}
+
+header{background:var(--card);border-bottom:1px solid var(--line);padding:20px 22px 0}
+header .hwrap{max-width:1400px;margin:0 auto}
+h1{font:600 24px/1.2 var(--serif);margin:0 0 5px;letter-spacing:-.008em;color:var(--ink)}
+.sub{color:var(--mute);font:12.5px/1.5 var(--sans);margin-bottom:13px}
+.sub b{color:var(--warn)}
+.disclaimer{background:var(--warnbg);border:1px solid var(--warnline);color:var(--warn);
+  border-radius:7px;padding:9px 13px;font-size:12.5px;margin:0 0 14px;max-width:1180px}
+nav{display:flex;gap:1px;flex-wrap:wrap;margin-bottom:-1px}
+nav button{background:none;border:0;border-bottom:2px solid transparent;padding:9px 13px;
+  font:inherit;font-size:13.5px;color:var(--mute);cursor:pointer;letter-spacing:.002em}
+nav button:hover{color:var(--ink-soft)}
+nav button.on{color:var(--ink);border-bottom-color:var(--accent);font-weight:600}
+nav button span{color:var(--faint);font-size:11px;margin-left:6px;font-variant-numeric:tabular-nums}
+main{display:flex;gap:24px;padding:22px 22px 64px;align-items:flex-start;max-width:1400px;margin:0 auto}
+aside{width:244px;flex:0 0 244px;position:sticky;top:14px}
+aside .grp{background:var(--card);border:1px solid var(--line);border-radius:9px;
+  padding:13px 14px;margin-bottom:12px;box-shadow:var(--shadow)}
+aside h3{font:650 10.5px/1 var(--sans);text-transform:uppercase;letter-spacing:.09em;color:var(--faint);margin:0 0 9px}
+aside label{display:flex;gap:8px;align-items:baseline;font-size:13px;padding:2.5px 0;cursor:pointer;color:var(--ink-soft)}
+aside label:hover{color:var(--ink)}
+aside label span.n{color:var(--faint);font-size:11.5px;margin-left:auto;font-variant-numeric:tabular-nums}
+#q{width:100%;padding:9px 11px;border:1px solid var(--line-strong);border-radius:7px;font:inherit;font-size:14px;background:var(--card-2)}
+#q:focus{outline:none;border-color:var(--accent);background:var(--card)}
+.clear{font-size:12px;background:none;border:0;color:var(--accent);cursor:pointer;padding:0;margin-top:8px}
+section.list{flex:1;min-width:0}
+.meta{color:var(--mute);font-size:12.5px;margin:0 0 12px}
+.row{background:var(--card);border:1px solid var(--line);border-radius:9px;padding:13px 15px;margin-bottom:10px;box-shadow:var(--shadow)}
+.row:target{border-color:var(--accent);box-shadow:0 0 0 3px rgba(31,79,130,.10)}
+.rid{font:11.5px/1 var(--mono);color:var(--faint)}
+.rid a{color:var(--faint);text-decoration:none}
+.rid a:hover{color:var(--accent)}
+.stmt{margin:7px 0 8px;font-size:14.5px;line-height:1.5;color:var(--ink)}
+.badge{display:inline-block;font:500 11px/1.35 var(--sans);padding:2px 8px;border-radius:20px;
+  border:1px solid var(--line);background:#f2f3f4;color:#3d464f;margin-right:6px;white-space:nowrap;letter-spacing:.01em}
+.b-est{background:#e9f3ec;border-color:#cbe2d3;color:#215c3a}
+.b-prob{background:#eaf1f8;border-color:#cddcef;color:#204f80}
+.b-unc{background:#fbf1de;border-color:#eeddb0;color:#7d5300}
+.b-hyp{background:#f1eef7;border-color:#ddd5ed;color:#4c3c76}
+.b-unk{background:#f0f1f2;border-color:#e0e2e5;color:#565f68}
+.b-neg{background:#f8ecec;border-color:#eccece;color:#7a2f2f}
+.k{color:var(--ink-soft);font-size:13px;margin:4px 0;line-height:1.5}
+.k b{color:var(--mute);font-weight:600}
+.srcs{font-size:12.5px;margin-top:8px}
+.srcs a{color:var(--mute)}
+.cand{color:var(--mute);font-size:12.5px;margin-top:6px;font-style:italic}
+.empty{color:var(--mute);padding:30px 0}
+.err{background:var(--card);border:1px solid #eccece;border-radius:9px;padding:18px;color:#7a2f2f}
+code{font:12.5px/1 var(--mono);background:#efece6;padding:1.5px 5px;border-radius:4px;color:var(--ink-soft)}
+footer{color:var(--mute);font-size:12px;padding:4px 22px 44px;max-width:1180px;margin:0 auto;line-height:1.55}
+@media (max-width:820px){main{flex-direction:column}aside{width:100%;flex:auto;position:static}}
+.to-top{position:fixed;right:22px;bottom:22px;z-index:60;width:40px;height:40px;border-radius:50%;
+  background:var(--card);border:1px solid var(--line-strong);color:var(--ink-soft);cursor:pointer;
+  box-shadow:var(--shadow);display:flex;align-items:center;justify-content:center;
+  transition:border-color .14s ease,color .14s ease}
+.to-top:hover{border-color:var(--accent);color:var(--accent)}
+.to-top[hidden]{display:none}
+.tt-arrow{width:9px;height:9px;border-top:2px solid currentColor;border-left:2px solid currentColor;
+  transform:rotate(45deg);margin-top:3px}
+@media (max-width:820px){.to-top{right:16px;bottom:16px}}
+</style>
+</head>
+<body>
+<div class="top">
+  <div class="bar">
+    <a class="wordmark" href="index.html"><img class="brand-logo" src="navbar-logo.png" alt="">Therapeutics Atlas</a>
+    <span class="crumbs"><span class="sep">›</span><a id="disease-link" href="ra.html">Rheumatoid arthritis</a>
+      <span class="sep">›</span><span class="here">Treatment Map</span></span>
+  </div>
+</div>
+<header>
+  <div class="hwrap">
+    <h1 id="title">Rheumatoid arthritis — Treatment Map</h1>
+    <div class="sub" id="subtitle">loading…</div>
+    <div class="disclaimer" id="disclaimer"></div>
+    <nav id="nav"></nav>
+  </div>
+</header>
+<main>
+  <aside>
+    <div class="grp">
+      <h3>Search</h3>
+      <input id="q" type="search" placeholder="any word or identifier">
+      <button class="clear" id="clear">clear all filters</button>
+    </div>
+    <div id="facets"></div>
+  </aside>
+  <section class="list">
+    <p class="meta" id="count"></p>
+    <div id="rows"></div>
+  </section>
+</main>
+<footer id="foot"></footer>
+
+<script>
+/* Open evidence record viewer — no dependencies, no build step, no backend.
+   Reads ra_record.json (see data/SCHEMA.md). Display obligations from the schema
+   are enforced here: every statement is shown with its grade, caveats are never
+   hidden, verbatim citations and token-matched candidates are visually distinct,
+   and the disclaimer is present on every view. */
+const TIER = {Established:'b-est', Probable:'b-prob', Uncertain:'b-unc', Hypothesis:'b-hyp', Unknown:'b-unk'};
+const VERDICT = {
+  'Works':'b-est', 'Works — abandoned anyway':'b-prob', 'Conflicting':'b-unc',
+  'Uncertain':'b-unk', 'Failed':'b-neg', 'Harm outweighs benefit':'b-neg', 'Poorly studied':'b-unk'
+};
+const SECTION_LABEL = {
+  works:'What works', doesnt_work:'What does not work', uncertain:'What is uncertain',
+  know:'What we know about the disease', dont_know:'What we do not know',
+  worth_studying:'What might be worth studying',
+  'S1 What works':'What works', 'S2 What does not work':'What does not work',
+  'S3 What is uncertain':'What is uncertain', 'S4 What we know about the disease':'What we know about the disease',
+  'S5 What we do not know':'What we do not know', 'S6 What might be worth studying':'What might be worth studying'
+};
+
+/* Per-tab view config: which key holds the rows, what to show, what to facet on. */
+const RA_TABS = [
+  {id:'map', key:'map', label:'Treatment map', title:'statement',
+   badges:[r=>[base(r.evidence_tier), TIER[base(r.evidence_tier)]||'', r.evidence_tier],
+           r=>[SECTION_LABEL[r.section]||r.section, '', null]],
+   fields:['reason','unmet_need','reason_class'],
+   facets:[['section','Section',SECTION_LABEL],['evidence_tier','Evidence tier',null],['unmet_need_codes','Unmet need',null]]},
+
+  {id:'interventions', key:'interventions', label:'Interventions', title:'intervention',
+   badges:[r=>[r.verdict_class, VERDICT[r.verdict_class]||'', r.verdict_detail],
+           r=>[r.domain, '', null]],
+   fields:['verdict_detail','key_result','best_evidence','evidence_base','population','outcome','certainty','caveat','unmet_need'],
+   facets:[['verdict_class','Verdict',null],['domain','Domain',null],['unmet_need_codes','Unmet need',null],['certainty','Certainty',null]]},
+
+  {id:'negatives', key:'negatives', label:'Negative results', title:'intervention',
+   badges:[r=>['Negative result','b-neg',null]], fields:['negative_result'], facets:[]},
+
+  {id:'conflicts', key:'conflicts', label:'Conflicts', title:'conflict',
+   badges:[r=>['Unresolved conflict','b-unc',null]], fields:['side_a','side_b','status'], facets:[]},
+
+  {id:'leads', key:'leads', label:'Research leads', title:'question',
+   badges:[r=>[r.id,'',null], r=>[r.current_status, /open/i.test(r.current_status||'')?'b-prob':'b-unk', null]],
+   fields:['current_form','phase4','phase5','verification','next_step','blocked_on'], facets:[['current_status','Status',null]]},
+
+  {id:'corrections', key:'corrections', label:'Corrections', title:'superseded_statement',
+   badges:[r=>[r.id,'b-neg',null], r=>[r.raised_in,'',null], r=>[r.corrects,'',null]],
+   fields:['correction','cause'], facets:[['raised_in','Raised in',null]]},
+
+  {id:'triage', key:'triage', label:'Candidate triage', title:'signal',
+   badges:[r=>[r.id,'',null], r=>[r.triage_outcome, /promot/i.test(r.triage_outcome||'')?'b-prob':'b-unk', null]],
+   fields:['triage_note','key_evidence','phase3_evidence_tier'], facets:[['triage_outcome','Outcome',null]]},
+
+  {id:'open_questions', key:'open_questions', label:'Open questions', title:'question',
+   badges:[r=>[r.current_evidence_tier, TIER[base(r.current_evidence_tier)]||'', null]],
+   fields:['why_it_matters','what_would_resolve_it','key_sources_doi'], facets:[]},
+
+  {id:'references', key:'references', label:'References', title:'title',
+   badges:[r=>[r.evidence_level,'',null], r=>[r.year?String(r.year).split('.')[0]:'','',null]],
+   fields:['journal','key_finding','topic'], facets:[['evidence_level','Evidence level',null],['topic','Topic',null]]},
+];
+
+const IPF_TABS = [
+  {id:'map', key:'map', label:'Treatment map', title:'statement',
+   badges:[r=>[base(r.evidence_tier),TIER[base(r.evidence_tier)]||'',r.evidence_tier_sublabel],r=>[SECTION_LABEL[r.section]||r.section,'',null],r=>[r.superseded_by?.length?'Superseded':'', 'b-neg', null]],
+   fields:['subject','outcome_dimension','evidence_tier_sublabel','caveat','caveat_status','sources_verbatim','maps_to_unmet_need','phase4_status','phase6_status'], facets:[['section','Section',SECTION_LABEL],['evidence_tier','Evidence tier',null],['outcome_dimension','Outcome dimension',null]]},
+  {id:'interventions', key:'interventions', label:'Interventions', title:'intervention', filter:r=>!r.is_duplicate,
+   badges:[r=>[r.verdict_class,VERDICT[r.verdict_class]||'',r.verdict_sublabel],r=>[base(r.evidence_tier),TIER[base(r.evidence_tier)]||'',r.evidence_tier_sublabel]],
+   fields:['verdict_sublabel','endpoint_dimension','strongest_design','key_result_verbatim','why','safety','evidence_access','curation_note'], facets:[['verdict_class','Verdict',null],['evidence_tier','Evidence tier',null],['evidence_access','Evidence access',null],['category','Category',null]]},
+  {id:'negatives', key:'negatives', label:'Negative results', title:'intervention', badges:[r=>[r.verdict_class,'b-neg',null],r=>[base(r.evidence_tier),TIER[base(r.evidence_tier)]||'',r.evidence_tier_sublabel]], fields:['failure_domain','key_result_verbatim','endpoint_dimension','why','termination_reasons','conflict_note'], facets:[['verdict_class','Verdict',null],['failure_domain','Failure domain',null]]},
+  {id:'conflicts', key:'conflicts', label:'Conflicts', title:'subject', badges:[r=>[r.resolved?'Resolved':'Unresolved',r.resolved?'b-unk':'b-unc',null]], fields:['conflict_type','description','current_status','resolution_rule_applied','verdict_recorded','sources_verbatim'], facets:[['resolved','Status',null]]},
+  {id:'candidates', key:'candidates', label:'Investigated candidates', title:'subject', badges:[r=>[r.status,/held/i.test(r.status||'')?'b-unc':'b-unk',null]], fields:['shape','outcome','screens_failed','reason','action_retained'], facets:[['status','Status',null]]},
+  {id:'screens', key:'screens', label:'Screen definitions', title:'definition', badges:[r=>[r.id,'',null]], fields:[], facets:[]},
+  {id:'actions', key:'actions', label:'Actions', title:'subject', badges:[r=>[r.open?'Open':'Closed',r.open?'b-unc':'b-unk',null],r=>[r.type,'',null]], fields:['detail','phase6_outcome','phase6_detail','from_candidate'], facets:[['open','Status',null],['type','Type',null]]},
+  {id:'ceiling', key:'therapeutic_ceiling', label:'Therapeutic ceiling', title:'dimension', badges:[r=>[r.evidence_tier,TIER[base(r.evidence_tier)]||'',null]], fields:['best_documented_result','source','what_remains_unachieved','caveat'], facets:[['evidence_tier','Evidence tier',null]]},
+  {id:'endpoints', key:'endpoint_taxonomy', label:'Endpoints', title:'dimension', badges:[r=>[r.id,'',null],r=>[r.evidence_level,'',null]], fields:['measure','metric_variants','threshold_or_mcid','prognostic_anchor','licenses','does_not_license','known_problems'], facets:[]},
+  {id:'measurement', key:'measurement_gaps', label:'Measurement gaps', title:'endpoint', badges:[r=>[r.dimension,'b-unc',null]], fields:['why_needed','approach','existing_validation','feasibility','smallest_validation_step'], facets:[['dimension','Dimension',null]]},
+  {id:'retrievability', key:'retrievability', label:'Unretrieved trials', title:'title', badges:[r=>[r.reporting_status,'b-unc',null]], fields:['nct','phase','enrollment','interventions','completion','results_retrievable','linked_pmids'], facets:[['reporting_status','Reporting status',null],['results_retrievable','Retrievability',null]]},
+  {id:'registry', key:'registry_results_sweep', label:'Registry results', title:'title', badges:[r=>[r.sweep_outcome,'',null]], fields:['nct','phase','enroll','status','completion','n_primary','n_analyses','iv_match'], facets:[['sweep_outcome','Sweep outcome',null]]},
+  {id:'coverage', key:'coverage_gaps', label:'Coverage gaps', title:'topic', badges:[r=>[r.type,'b-unc',null]], fields:['year','journal','included','participants','chinese_databases','in_landscape'], facets:[['type','Type',null]]},
+  {id:'unmet_needs', key:'unmet_needs', label:'Unmet needs', title:'unmet_need', badges:[r=>[r.code,'',null],r=>[r.status,'b-unc',null]], fields:['dimension','maps_to_endpoints','evidence_basis'], facets:[['dimension','Dimension',null]]},
+  {id:'open_questions', key:'open_questions', label:'Open questions', title:'question', badges:[r=>[r.evidence_status,TIER[base(r.evidence_status)]||'',null]], fields:['current_evidence','smallest_useful_next_step'], facets:[['evidence_status','Evidence status',null]]},
+  {id:'limitations', key:'limitations', label:'Limitations', title:'scope', badges:[r=>[r.limitation_id,'b-unc',null]], fields:['detail'], facets:[]},
+  {id:'corrections', key:'corrections', label:'Corrections', title:'claim_corrected', badges:[r=>[r.id,'b-neg',null],r=>[r.phase,'',null]], fields:['correction','basis','effect','date'], facets:[['phase','Phase',null]]},
+  {id:'references', key:'references', label:'References', title:'title', badges:[r=>[r.type?.toUpperCase(),' ',null],r=>[r.year?String(r.year):'','',null]], fields:['id','journal','title_source','cited_by'], facets:[['type','Type',null],['year','Year',null]]}
+];
+
+let TABS = RA_TABS;
+
+const state = {tab:'map', q:'', facets:{}};
+let DB = null;
+
+function base(t){ return (t||'').split(' (')[0].trim(); }
+function esc(s){ return String(s==null?'':s).replace(/[&<>"]/g, c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c])); }
+function tab(){ return TABS.find(t=>t.id===state.tab); }
+function tabRows(t){ const rows=DB[t.key]||[]; return t.filter?rows.filter(t.filter):rows; }
+function facetVals(r, key){
+  const v = r[key];
+  if (Array.isArray(v)) return v;
+  if (key === 'evidence_tier') return v ? [base(v)] : [];
+  return v ? [v] : [];
+}
+
+function rowsFor(t){
+  let rs = tabRows(t);
+  const q = state.q.trim().toLowerCase();
+  if (q) rs = rs.filter(r => JSON.stringify(r).toLowerCase().includes(q));
+  for (const [key] of t.facets){
+    const on = state.facets[key];
+    if (on && on.size) rs = rs.filter(r => facetVals(r, key).some(v => on.has(v)));
+  }
+  return rs;
+}
+
+function renderNav(){
+  document.getElementById('nav').innerHTML = TABS.map(t =>
+    `<button data-tab="${t.id}" class="${t.id===state.tab?'on':''}">${esc(t.label)}<span>${tabRows(t).length}</span></button>`
+  ).join('');
+  document.querySelectorAll('nav button').forEach(b => b.onclick = () => {
+    state.tab = b.dataset.tab; state.facets = {}; render();
+  });
+}
+
+function renderFacets(){
+  const t = tab(), all = tabRows(t), host = document.getElementById('facets');
+  host.innerHTML = t.facets.map(([key, label, labelMap]) => {
+    const counts = {};
+    all.forEach(r => facetVals(r, key).forEach(v => counts[v] = (counts[v]||0)+1));
+    const on = state.facets[key] || new Set();
+    const items = Object.entries(counts).sort((a,b)=>b[1]-a[1]).map(([v,n]) =>
+      `<label><input type="checkbox" data-key="${esc(key)}" value="${esc(v)}" ${on.has(v)?'checked':''}>
+        ${esc(labelMap && labelMap[v] ? labelMap[v] : v)}<span class="n">${n}</span></label>`).join('');
+    return items ? `<div class="grp"><h3>${esc(label)}</h3>${items}</div>` : '';
+  }).join('');
+  host.querySelectorAll('input').forEach(cb => cb.onchange = () => {
+    const s = state.facets[cb.dataset.key] || new Set();
+    cb.checked ? s.add(cb.value) : s.delete(cb.value);
+    state.facets[cb.dataset.key] = s; render(false);
+  });
+}
+
+function refHtml(r){
+  let h = '';
+  if (r.refs && r.refs.length) h += '<div class="srcs">Source: ' + r.refs.map(x =>
+      x.url ? `<a href="${esc(x.url)}" target="_blank" rel="noopener">${esc(x.type.toUpperCase())} ${esc(x.id)}</a>`
+            : `${esc(x.type.toUpperCase())} ${esc(x.id)}`).join(' · ') + '</div>';
+  else if (r.source) h += `<div class="srcs">Source label: ${esc(r.source)}</div>`;
+  if (r.ref_candidates && r.ref_candidates.length)
+    h += '<div class="cand">Possible source (matched on a label, not a verified citation): ' +
+      r.ref_candidates.map(c => `${esc(c.label||c.id)} <span class="rid">[${esc(c.id)} · "${esc(c.matched_on)}"]</span>`).join('; ') + '</div>';
+  if (r.corrections && r.corrections.length)
+    h += `<div class="srcs">Corrections applying to this lead: ${r.corrections.map(esc).join(', ')}</div>`;
+  if (r.primary_source) h += `<div class="srcs">Primary source: ${esc(r.primary_source)}</div>`;
+  if (r.url) h += `<div class="srcs"><a href="${esc(r.url)}" target="_blank" rel="noopener">open source</a></div>`;
+  return h;
+}
+
+function rowHtml(r, t){
+  const badges = (t.badges||[]).map(f => {
+    const [text, cls, title] = f(r) || [];
+    return text ? `<span class="badge ${cls||''}" ${title?`title="${esc(title)}"`:''}>${esc(text)}</span>` : '';
+  }).join('');
+  const fields = (t.fields||[]).filter(k => r[k]).map(k =>
+    `<div class="k"><b>${esc(k.replace(/_/g,' '))}:</b> ${esc(r[k])}</div>`).join('');
+  const steps = (r.steps||[]).map(s =>
+    `<div class="k"><b>${esc(s.id)} (${esc(s.step_type||'')}):</b> ${esc(s.question||'')}
+      ${s.strengthen_criterion?` <i>Strengthens if:</i> ${esc(s.strengthen_criterion)}`:''}
+      ${s.falsify_criterion?` <i>Falsified if:</i> ${esc(s.falsify_criterion)}`:''}
+      ${s.main_barrier?` <i>Barrier:</i> ${esc(s.main_barrier)}`:''}</div>`).join('');
+  const superseded = r.superseded_by?.length ? `<div class="srcs">Superseded by: ${r.superseded_by.map(id=>`<a href="${esc(location.pathname+'?data='+DATA_URL+'#'+id)}">${esc(id)}</a>`).join(', ')}</div>` : '';
+  const heading = r[t.title] || r.title || r.subject || r.intervention || r.question || r.id || '';
+  return `<article class="row" id="${esc(r.id)}">
+    <div class="rid"><a href="#${esc(r.id)}">${esc(r.id)}</a>${r.item?' · '+esc(r.item):''}${r.lead&&r.lead!==r.id?' · '+esc(r.lead):''}</div>
+    <div class="stmt">${badges}${esc(heading)}</div>
+    ${fields}${steps}${superseded}${refHtml(r)}
+  </article>`;
+}
+
+function render(refacet = true){
+  const t = tab(), rs = rowsFor(t);
+  if (refacet) renderFacets();
+  renderNav();
+  document.getElementById('count').textContent =
+    `${rs.length} of ${tabRows(t).length} ${t.label.toLowerCase()}` +
+    (state.q ? ` matching "${state.q}"` : '');
+  document.getElementById('rows').innerHTML = rs.length
+    ? rs.map(r => rowHtml(r, t)).join('')
+    : '<p class="empty">No rows match. A blank result is a fact about the filters, not about the evidence.</p>';
+  if (location.hash) { const el = document.getElementById(location.hash.slice(1)); if (el) el.scrollIntoView({block:'center'}); }
+}
+
+function selectHash(){
+  const h=(location.hash||'').slice(1); if(!h)return false;
+  const owner=TABS.find(t=>(DB[t.key]||[]).some(r=>r.id===h));
+  if(owner){state.tab=owner.id;state.facets={};return true;}
+  const tabHit=TABS.find(t=>t.id===h);
+  if(tabHit){state.tab=tabHit.id;state.facets={};return true;}
+  return false;
+}
+
+function boot(db){
+  DB = db;
+  const m = db.meta || {};
+  const isIPF = /^ipf-public-/.test(m.schema_version||'');
+  TABS = isIPF ? IPF_TABS : RA_TABS;
+  document.getElementById('disease-link').textContent = m.disease || 'Rheumatoid arthritis';
+  document.getElementById('disease-link').href = isIPF ? 'ipf.html' : 'ra.html';
+  document.getElementById('title').textContent = `${m.disease||'Treatment Map'} — Treatment Map`;
+  document.title = `Treatment Map — ${m.disease||''} · Therapeutics Atlas`;
+  const counts = m.counts || db.counts || {};
+  const countText = isIPF
+    ? `${counts.map_statements} statements · ${counts.interventions_distinct} distinct interventions · ${counts.research_leads} research leads`
+    : Object.entries(counts).map(([k,v])=>`${v} ${k.replace(/_/g,' ')}`).join(' · ');
+  document.getElementById('subtitle').innerHTML =
+    `${countText}` +
+    ` — generated ${esc(m.generated||'')} · schema ${esc(m.schema_version||'')} · ` +
+    `${m.peer_reviewed ? 'peer reviewed' : '<b>not peer reviewed</b>'} · licence: ${esc(m.licence||'unspecified')}`;
+  document.getElementById('disclaimer').textContent = m.disclaimer || '';
+  document.getElementById('foot').innerHTML =
+    `Grades describe the state of the evidence, not the biology. ` +
+    `${(db.corrections||[]).length} statements in the archived phase reports have been corrected — see the Corrections tab before citing any phase document. ` +
+    `Canonical source: ${esc(m.canonical_source||m.source_of_truth||'')}.`;
+  document.getElementById('q').oninput = e => { state.q = e.target.value; render(false); };
+  document.getElementById('clear').onclick = () => {
+    state.q = ''; state.facets = {}; document.getElementById('q').value = ''; render();
+  };
+  /* deep link: #TM-042 opens the tab that owns that row id; #corrections opens a tab by its id */
+  selectHash();
+  /* ?section=works → open the treatment-map tab pre-filtered to that section (from the overview blocks) */
+  const secParam = new URLSearchParams(location.search).get('section');
+  if (secParam && SECTION_LABEL[secParam]) { state.tab = 'map'; state.facets = { section: new Set([secParam]) }; }
+  render();
+}
+
+/* Which record to load. Defaults to this disease's file; an optional ?data=<name>.json lets the same
+   viewer serve another disease record placed in this folder. Restricted to a same-folder JSON filename
+   so the parameter can never point the fetch at an external URL. */
+const _p = new URLSearchParams(location.search).get('data');
+const DATA_URL = (_p && /^[\w.-]+\.json$/.test(_p)) ? _p : 'ra_record.json';
+
+window.addEventListener('hashchange',()=>{ if(DB&&selectHash())render(); });
+
+fetch(DATA_URL)
+  .then(r => { if (!r.ok) throw new Error('HTTP ' + r.status); return r.json(); })
+  .then(boot)
+  .catch(e => {
+    document.querySelector('section.list').innerHTML =
+      `<div class="err"><b>Could not load ${esc(DATA_URL)}</b> (${esc(e.message)}).<br><br>
+       Put <code>${esc(DATA_URL)}</code> next to this file and serve the folder over HTTP —
+       browsers block <code>fetch</code> from <code>file://</code>:<br><br>
+       <code>python -m http.server 8000</code> then open the served site URL.</div>`;
+  });
+</script>
+<script>
+/* floating back-to-top control (self-contained; map.html has no external JS) */
+(function(){
+  var b=document.createElement('button');b.type='button';b.className='to-top';b.hidden=true;
+  b.setAttribute('aria-label','Back to top');b.title='Back to top';
+  b.innerHTML='<span class="tt-arrow" aria-hidden="true"></span>';
+  b.addEventListener('click',function(){var r=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;window.scrollTo({top:0,behavior:r?'auto':'smooth'});});
+  function s(){b.hidden=(window.pageYOffset||document.documentElement.scrollTop||0)<400;}
+  document.body.appendChild(b);window.addEventListener('scroll',s,{passive:true});s();
+})();
+</script>
+</body>
+</html>

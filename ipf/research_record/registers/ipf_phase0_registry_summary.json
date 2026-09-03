@@ -1,0 +1,51 @@
+{
+ "total_studies": 632,
+ "interventional": 430,
+ "observational": 198,
+ "phase": {
+  "PHASE2": 146,
+  "PHASE1": 96,
+  "NA": 88,
+  "PHASE3": 57,
+  "PHASE1|PHASE2": 14,
+  "PHASE4": 12,
+  "EARLY_PHASE1": 10,
+  "PHASE2|PHASE3": 7
+ },
+ "status": {
+  "COMPLETED": 239,
+  "TERMINATED": 52,
+  "RECRUITING": 50,
+  "UNKNOWN": 35,
+  "NOT_YET_RECRUITING": 21,
+  "ACTIVE_NOT_RECRUITING": 19,
+  "WITHDRAWN": 12,
+  "ENROLLING_BY_INVITATION": 1,
+  "SUSPENDED": 1
+ },
+ "completed": 239,
+ "results_posted": 90,
+ "completed_since2010_no_results": 129,
+ "stopped": 65,
+ "distinct_intervention_strings": 488,
+ "starts_2020_2026": 208,
+ "volume": {
+  "IPF_all": 18308,
+  "IPF_rct": 305,
+  "IPF_ma": 291,
+  "IPF_gl": 34,
+  "IPF_tcm": 103,
+  "RA_all": 186017,
+  "RA_rct": 4806
+ },
+ "reason_classes": {
+  "efficacy/futility": 13,
+  "recruitment": 12,
+  "business / sponsor / funding": 10,
+  "other": 10,
+  "safety / benefit-risk": 10,
+  "no reason stated": 5,
+  "COVID-19 disruption": 3,
+  "external result / SoC change": 2
+ }
+}

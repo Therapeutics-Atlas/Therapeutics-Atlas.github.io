@@ -85,7 +85,13 @@
   </div>
 </main>
 
-<footer><div class="wrap" id="foot">Grades describe the state of the evidence, not the biology.</div></footer>
+<footer class="site-footer">
+  <div class="wrap footer-lines">
+    <div class="footer-identity">Therapeutics Atlas — an open, correctable research record.</div>
+    <div class="footer-context">Nothing here has been peer reviewed. The full research trail and structured data live alongside each disease record.</div>
+    <div class="footer-links"><a href="https://github.com/Therapeutics-Atlas">GitHub</a><span aria-hidden="true">·</span><a href="mailto:willychen301@gmail.com">Corrections &amp; contact</a></div>
+  </div>
+</footer>
 
 <script>
 function esc(s){ return String(s==null?'':s).replace(/[&<>\"]/g, c=>({'&':'&amp;','<':'&lt;','>':'&gt;','\"':'&quot;'}[c])); }
@@ -151,7 +157,6 @@ Promise.all([
   document.getElementById('candidates').innerHTML=candidates.map(candidateHtml).join('');
   document.getElementById('action-n').textContent=`${actions.filter(a=>a.open).length} open of ${actions.length}`;
   document.getElementById('actions').innerHTML=actions.map(actionHtml).join('');
-  document.getElementById('foot').textContent=`Grades describe the state of the evidence, not the biology. Generated ${m.generated||''} · ${m.peer_reviewed?'peer reviewed':'not peer reviewed'}. Full sources and individual records are in the Treatment Map.`;
 }).catch(e=>{
   document.getElementById('publication').innerHTML=`<div class="disclaimer">Could not load the IPF publication record (${esc(e.message)}). Serve the repository over HTTP; browsers block fetch from file://.</div>`;
 });

@@ -1,123 +1,70 @@
-# Open Therapeutics #001 — Rheumatoid Arthritis
+# Therapeutics Atlas
 
-An open, checkable record of what is known, disputed, and untested about treating rheumatoid
-arthritis — including the interventions that do **not** work, and the questions nobody has asked
-in a form that could answer them.
+**Mapping what we know. Finding what comes next.**
 
-This is not a review article and not medical advice. It contains no treatment recommendation and
-no claim that any intervention works. It is a **map with its sources attached**, built so that
-someone else can check it, disagree with a specific row on stated grounds, or continue it.
+Therapeutics Atlas is an open, correctable research project that maps what is known about treating diseases with major unmet therapeutic needs. Each disease record preserves what works, what has failed or caused harm, what remains uncertain or poorly studied, and which important questions are still unanswered.
 
-**Status:** phases 1–6 complete. Two research leads remain open; both are blocked on discretionary
-access to data held by other groups, not on further literature work. Nothing here has been peer
-reviewed.
+This is a research record, not medical advice. Nothing here has been peer reviewed. Research Leads are unresolved questions or hypotheses, not treatment recommendations or claims of efficacy.
 
----
+## Disease records
 
-## Start here
+### Rheumatoid arthritis
 
-| If you want to | Read |
-|---|---|
-| A three-page overview | `SUMMARY.md` |
-| The map itself, as data | `data/treatment_map.csv` |
-| What has been shown *not* to work | `data/negative_results_register.csv` |
-| Where credible sources disagree | `data/conflicts_register.csv` |
-| The two open leads and their current footing | `data/research_leads_status.csv` |
-| What this project got wrong and corrected | `data/corrections_log.csv` |
-| How evidence was graded | `docs/evidence_grading.md` |
-| What happens next, and who it depends on | `docs/next_steps_and_dependencies.md` |
-| The full reasoning trail, dated | `phases/` |
-| To read the record from code or a website | `data/ra_record.json` + `data/SCHEMA.md` |
-| To browse it in a browser | `site/` — serve the folder, no build step |
+Evidence mapping is complete. Six Research Leads were investigated; two remain open after critical review, and both depend on access to existing external data rather than a new clinical trial.
 
-## What is in here, in numbers
+- [Overview](https://therapeutics-atlas.github.io/ra.html)
+- [Treatment Map](https://therapeutics-atlas.github.io/map.html)
+- [Research record and current synthesis](SUMMARY.md)
+- [Phase archive](phases/)
+- [Structured research data](data/)
 
-- **67 interventions** across 12 domains (modern, historical, repurposed, supplements, TCM herbal
-  and non-herbal, acupuncture, mind–body, lifestyle) with a verdict class, the strongest available
-  evidence design, a verbatim key result, and PMID/DOI — `data/intervention_register.csv`
-- **115 mapped statements** in six sections: what works (17), what does not work (19), what is
-  uncertain (22), what we know about the disease (22), what we do not know (13), and what might be
-  worth studying (22) — `data/treatment_map.csv`
-- **17 preserved negative results** — `data/negative_results_register.csv`
-- **9 preserved conflicts**, kept unresolved where the evidence does not resolve them —
-  `data/conflicts_register.csv`
-- **9 documented corrections** to this project's own earlier statements — `data/corrections_log.csv`
-- **77 references** with identifiers — `data/references.csv`
-- **10 open questions** carried from the baseline review — `data/open_questions.csv`
+### Idiopathic pulmonary fibrosis
 
-## How it was built
+The research cycle is complete through Phase 6. Forty-one candidate signals were screened; no Research Lead met the promotion bar. Phase 5 was recorded as skipped because there was no surviving lead to investigate.
 
-Six sequential phases, each written before the next began, and each preserved unedited in
-`phases/`:
+- [Overview](https://therapeutics-atlas.github.io/ipf.html)
+- [Treatment Map](https://therapeutics-atlas.github.io/map.html?data=ipf_record.json)
+- [Research record](ipf/README.md)
+- [Phase archive](ipf/research_record/)
+- [Publication artifacts](ipf/publication/)
 
-1. **Evidence baseline** — what RA is, how it is treated, and where current treatment reaches its
-   ceiling.
-2. **Treatment landscape** — 67 interventions from all traditions, graded on the same scale, with
-   negative results and conflicts recorded rather than dropped.
-3. **Open treatment map** — the landscape reorganised into what we know, what we do not, and what
-   might be worth studying.
-4. **Research leads** — 22 candidate signals triaged; six promoted, sixteen rejected with reasons
-   recorded.
-5. **Deep investigation, then targeted verification against primary full texts** — three leads
-   survived stage one; verification then reframed one, narrowed one, and downgraded one.
-6. **Next steps** — the smallest analysis that could resolve each remaining lead, and a
-   public-record check establishing whether it can be executed without contacting the original
-   teams. It cannot.
+## How the Atlas works
 
-Retrieval and drafting were AI-assisted under human direction. Every load-bearing claim was traced
-to a primary record and carries a PMID, DOI, or registry identifier. Secondary summaries were not
-treated as evidence. Where full text was read, statements are quoted rather than paraphrased.
+1. **Define the scope.** Establish the disease boundary, unmet needs, and evidence rules.
+2. **Map the baseline.** Describe the disease, current care, outcomes, and unresolved needs.
+3. **Survey interventions.** Record modern, historical, repurposed, traditional, and non-pharmacological approaches without assuming which should work.
+4. **Build the Treatment Map.** Grade claims consistently while preserving negative results, conflicts, uncertainty, corrections, and sources.
+5. **Screen Research Leads.** Test candidate questions against prespecified standards; zero surviving leads is a valid result.
+6. **Investigate and specify next steps.** Deeply examine surviving leads only when any exist, then record the smallest evidence-grounded action that could strengthen, narrow, or falsify them.
 
-## Working rules this record follows
+## Working principles
 
-1. Do not assume the answer. TCM is not assumed to work; modern medicine is not assumed superior.
-2. AI does not declare that a treatment works. Efficacy requires clinical validation.
-3. **Negative results are results.** They are collected deliberately, not as a by-product.
-4. Levels of evidence are kept separate: human RCT, observational, case report, animal, in vitro,
-   mechanistic, traditional record, hypothesis.
-5. Traditional medicine is a source of hypotheses, not assumed truth. No claim depends on qi,
-   meridians, or yin–yang being biologically real.
-6. Phenomenon first, mechanism later — but absence of a mechanism is not evidence of an effect.
-7. Uncertainty is stated. Where studies disagree, both are shown; where evidence is insufficient,
-   the record says so.
-8. Corrections are made in public. Nothing is silently revised.
+- Evidence first; where it is insufficient, say so.
+- Distinguish lack of evidence from evidence of no effect.
+- Preserve negative results, uncertainty, and credible disagreement.
+- Evaluate claims by the evidence, not by where an intervention comes from.
+- Correct the record openly without rewriting historical phase outputs.
+- AI assists the research process; it does not determine that a treatment works.
+- Treat Research Leads as questions, not findings, and never force them.
+- Investigate one disease at a time.
 
-## What is deliberately not here
+## Repository and website
 
-- Any recommendation, dosing guidance, or claim of efficacy.
-- Unsent correspondence with other research groups.
-- Anything that would identify a patient or research participant. The record contains no
-  individual-level data of any kind.
-- A ranking of the open leads. They address different populations with different evidence types;
-  ordering them would imply a comparison the evidence does not support.
+The [public website](https://therapeutics-atlas.github.io/) is the presentation layer. The complete repository is the inspectable research record: phase reports, structured registers, publication artifacts, corrections, provenance, QA materials, figures, and reproducible builder or validation scripts remain alongside the site.
 
-## Known limitations
+Each disease preserves its own research structure where scientific fidelity requires it, while public data are generated from and checked against the preserved source record.
 
-- **Retrieval is the main failure mode.** Three of the nine corrections in this record are cases
-  where an apparent research gap turned out to be a gap in the search strategy. Others almost
-  certainly remain. If you find one, it is a genuine contribution.
-- Coverage of non-English and pre-1980 literature is thin, which matters most for historical and
-  traditional interventions.
-- No meta-analysis was performed. Effect sizes are reported as their sources reported them, which
-  is why `data/intervention_register.csv` carries a `caveat` column.
-- Verdict classes are judgements about evidence, not about biology, and are open to dispute. The
-  grading scheme is written out in `docs/evidence_grading.md` so a disagreement can be located.
+## Corrections and contact
 
-## Figures
+Useful contributions include:
 
-`figures/` — treatment ceiling of current therapy; landscape by domain and by unmet need; reported
-effect size against evidence quality; the open map; lead triage; evidence chains per lead; the
-verification result per claim; and the proposed next steps.
+- missed primary records or negative results;
+- evidence that changes a verdict, status, or recorded conflict;
+- errors in data, citations, rendering, or provenance;
+- reproducibility and accessibility improvements that do not alter the scientific record.
 
-## Continuing this work
-
-The most useful contributions, in order: a missed primary record that changes a row; a negative
-result not yet in the register; a correction to a verdict with a stated reason; an answer to either
-open lead's blocking question. Each is a change to a specific line of a specific file.
+Send corrections or questions through [Corrections & contact](mailto:willychen301@gmail.com). Please identify the disease, record or statement, and supporting source where possible.
 
 ## Reuse
 
-Licence: *to be chosen by the author before publication.* CC BY 4.0 for text and data is the
-conventional choice for a record intended to be reused and corrected.
-
-Cite as a dated snapshot; the corrections log is the reason the date matters.
+Original Therapeutics Atlas content is licensed under [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/). Third-party sources, quotations, figures, and other referenced materials remain subject to their original rights and are not relicensed by this repository.

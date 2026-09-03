@@ -100,8 +100,12 @@
   </div>
 </main>
 
-<footer>
-  <div class="wrap" id="foot">Grades describe the state of the evidence, not the biology.</div>
+<footer class="site-footer">
+  <div class="wrap footer-lines">
+    <div class="footer-identity">Therapeutics Atlas — an open, correctable research record.</div>
+    <div class="footer-context">Nothing here has been peer reviewed. The full research trail and structured data live alongside each disease record.</div>
+    <div class="footer-links"><a href="https://github.com/Therapeutics-Atlas">GitHub</a><span aria-hidden="true">·</span><a href="mailto:willychen301@gmail.com">Corrections &amp; contact</a></div>
+  </div>
 </footer>
 
 <script>
@@ -270,11 +274,6 @@ fetch('ra_record.json')
     document.getElementById('leads-open').innerHTML = openLeads.map(openLeadHtml).join('');
     document.getElementById('other-n').textContent = otherLeads.length;
     document.getElementById('leads-other').innerHTML = otherLeads.map(ledgerHtml).join('');
-
-    document.getElementById('foot').textContent =
-      `Grades describe the state of the evidence, not the biology. ` +
-      `Generated ${m.generated||''} · ${m.peer_reviewed ? 'peer reviewed' : 'not peer reviewed'}. ` +
-      `Full sources and every individual record are in the Treatment Map.`;
 
     openFromHash();
   })

@@ -17,8 +17,8 @@
   --ink:#1b1e22; --ink-soft:#3b424a; --mute:#6a7076; --faint:#9aa0a6;
   --line:#e6e2db; --line-soft:#efece6; --line-strong:#d9d4cb;
   --accent:#1f4f82; --accent-soft:#eef2f8;
-  --warn:#7d5300; --warnbg:#fbf3df; --warnline:#ecdcae;
   --shadow:0 1px 2px rgba(24,26,30,.03), 0 1px 1px rgba(24,26,30,.02);
+  --page-pad:22px; --sidebar-width:244px; --content-gap:24px;
 }
 *{box-sizing:border-box}
 body{margin:0;background:var(--bg);color:var(--ink);border-top:3px solid var(--accent);
@@ -40,17 +40,20 @@ header{background:var(--card);border-bottom:1px solid var(--line);padding:20px 2
 header .hwrap{max-width:1400px;margin:0 auto}
 h1{font:600 24px/1.2 var(--serif);margin:0 0 5px;letter-spacing:-.008em;color:var(--ink)}
 .sub{color:var(--mute);font:12.5px/1.5 var(--sans);margin-bottom:13px}
-.sub b{color:var(--warn)}
-.disclaimer{background:var(--warnbg);border:1px solid var(--warnline);color:var(--warn);
-  border-radius:7px;padding:9px 13px;font-size:12.5px;margin:0 0 14px;max-width:1180px}
+.research-note{color:var(--mute);font-size:12.5px;line-height:1.55;margin:0 0 14px;max-width:1180px}
+.research-note span{display:block}
+.research-note .scope-note{margin-top:2px;color:var(--faint)}
+.research-note .scope-note strong{color:var(--mute);font-weight:600}
 nav{display:flex;gap:1px;flex-wrap:wrap;margin-bottom:-1px}
 nav button{background:none;border:0;border-bottom:2px solid transparent;padding:9px 13px;
   font:inherit;font-size:13.5px;color:var(--mute);cursor:pointer;letter-spacing:.002em}
 nav button:hover{color:var(--ink-soft)}
 nav button.on{color:var(--ink);border-bottom-color:var(--accent);font-weight:600}
 nav button span{color:var(--faint);font-size:11px;margin-left:6px;font-variant-numeric:tabular-nums}
-main{display:flex;gap:24px;padding:22px 22px 64px;align-items:flex-start;max-width:1400px;margin:0 auto}
-aside{width:244px;flex:0 0 244px;position:sticky;top:14px}
+main{display:flex;gap:var(--content-gap);padding:22px var(--page-pad) 18px;align-items:flex-start;max-width:1400px;margin:0 auto}
+aside{width:var(--sidebar-width);flex:0 0 var(--sidebar-width);position:sticky;top:14px;align-self:flex-start;
+  max-height:calc(100vh - 28px);max-height:calc(100dvh - 28px);overflow-y:auto;
+  scrollbar-gutter:stable;overscroll-behavior-y:contain}
 aside .grp{background:var(--card);border:1px solid var(--line);border-radius:9px;
   padding:13px 14px;margin-bottom:12px;box-shadow:var(--shadow)}
 aside h3{font:650 10.5px/1 var(--sans);text-transform:uppercase;letter-spacing:.09em;color:var(--faint);margin:0 0 9px}
@@ -84,16 +87,24 @@ section.list{flex:1;min-width:0}
 .empty{color:var(--mute);padding:30px 0}
 .err{background:var(--card);border:1px solid #eccece;border-radius:9px;padding:18px;color:#7a2f2f}
 code{font:12.5px/1 var(--mono);background:#efece6;padding:1.5px 5px;border-radius:4px;color:var(--ink-soft)}
-footer{color:var(--mute);font-size:12px;padding:4px 22px 44px;max-width:1180px;margin:0 auto;line-height:1.55}
-@media (max-width:820px){main{flex-direction:column}aside{width:100%;flex:auto;position:static}}
-.to-top{position:fixed;right:22px;bottom:22px;z-index:60;width:40px;height:40px;border-radius:50%;
-  background:var(--card);border:1px solid var(--line-strong);color:var(--ink-soft);cursor:pointer;
-  box-shadow:var(--shadow);display:flex;align-items:center;justify-content:center;
-  transition:border-color .14s ease,color .14s ease}
-.to-top:hover{border-color:var(--accent);color:var(--accent)}
+.record-note{color:var(--mute);font-size:12px;line-height:1.5;
+  padding:0 var(--page-pad) 30px calc(var(--page-pad) + var(--sidebar-width) + var(--content-gap));
+  max-width:1400px;margin:0 auto;display:grid;gap:2px}
+.record-note p{margin:0}
+.record-note a{color:var(--accent);text-decoration:none}
+.record-note a:hover{text-decoration:underline}
+@media (max-width:820px){main{flex-direction:column}aside{width:100%;flex:auto;position:static;
+  max-height:none;overflow:visible;scrollbar-gutter:auto;overscroll-behavior:auto}
+  .record-note{padding-left:var(--page-pad)}}
+.to-top{position:fixed;right:22px;bottom:22px;z-index:60;width:42px;height:42px;border-radius:50%;
+  background:var(--card);border:1px solid rgba(31,79,130,.28);color:var(--accent);cursor:pointer;
+  box-shadow:0 2px 8px rgba(24,26,30,.07);display:flex;align-items:center;justify-content:center;
+  transition:border-color .14s ease,background-color .14s ease}
+.to-top:hover{background:rgba(31,79,130,.045);border-color:rgba(31,79,130,.48)}
 .to-top[hidden]{display:none}
-.tt-arrow{width:9px;height:9px;border-top:2px solid currentColor;border-left:2px solid currentColor;
-  transform:rotate(45deg);margin-top:3px}
+.tt-arrow{width:10px;height:10px;border-top:2px solid currentColor;border-left:2px solid currentColor;
+  transform:rotate(45deg);margin-top:3px;transition:transform .14s ease}
+.to-top:hover .tt-arrow{transform:translateY(-1px) rotate(45deg)}
 @media (max-width:820px){.to-top{right:16px;bottom:16px}}
 </style>
 </head>
@@ -109,12 +120,12 @@ footer{color:var(--mute);font-size:12px;padding:4px 22px 44px;max-width:1180px;m
   <div class="hwrap">
     <h1 id="title">Rheumatoid arthritis — Treatment Map</h1>
     <div class="sub" id="subtitle">loading…</div>
-    <div class="disclaimer" id="disclaimer"></div>
+    <p class="research-note" id="disclaimer"></p>
     <nav id="nav"></nav>
   </div>
 </header>
 <main>
-  <aside>
+  <aside tabindex="0" aria-label="Treatment Map filters">
     <div class="grp">
       <h3>Search</h3>
       <input id="q" type="search" placeholder="any word or identifier">
@@ -127,7 +138,7 @@ footer{color:var(--mute);font-size:12px;padding:4px 22px 44px;max-width:1180px;m
     <div id="rows"></div>
   </section>
 </main>
-<footer id="foot"></footer>
+<div class="record-note" id="foot" role="note"></div>
 
 <script>
 /* Open evidence record viewer — no dependencies, no build step, no backend.
@@ -251,6 +262,12 @@ function renderNav(){
   });
 }
 
+function scrollResultsToTop(){
+  const list = document.querySelector('section.list');
+  const top = window.scrollY + list.getBoundingClientRect().top - 14;
+  window.scrollTo({top: Math.max(0, top), behavior:'auto'});
+}
+
 function renderFacets(){
   const t = tab(), all = tabRows(t), host = document.getElementById('facets');
   host.innerHTML = t.facets.map(([key, label, labelMap]) => {
@@ -265,7 +282,7 @@ function renderFacets(){
   host.querySelectorAll('input').forEach(cb => cb.onchange = () => {
     const s = state.facets[cb.dataset.key] || new Set();
     cb.checked ? s.add(cb.value) : s.delete(cb.value);
-    state.facets[cb.dataset.key] = s; render(false);
+    state.facets[cb.dataset.key] = s; render(false); scrollResultsToTop();
   });
 }
 
@@ -338,18 +355,43 @@ function boot(db){
   document.getElementById('title').textContent = `${m.disease||'Treatment Map'} — Treatment Map`;
   document.title = `Treatment Map — ${m.disease||''} · Therapeutics Atlas`;
   const counts = m.counts || db.counts || {};
-  const countText = isIPF
-    ? `${counts.map_statements} statements · ${counts.interventions_distinct} distinct interventions · ${counts.research_leads} research leads`
-    : Object.entries(counts).map(([k,v])=>`${v} ${k.replace(/_/g,' ')}`).join(' · ');
-  document.getElementById('subtitle').innerHTML =
-    `${countText}` +
-    ` — generated ${esc(m.generated||'')} · schema ${esc(m.schema_version||'')} · ` +
-    `${m.peer_reviewed ? 'peer reviewed' : '<b>not peer reviewed</b>'} · licence: ${esc(m.licence||'unspecified')}`;
-  document.getElementById('disclaimer').textContent = m.disclaimer || '';
+  const metrics = isIPF
+    ? [
+        [counts.map_statements, 'map statements'],
+        [counts.interventions_distinct, 'distinct interventions'],
+        [counts.negative_results, 'negative results'],
+        [counts.conflicts, 'conflicts'],
+        [counts.candidates_screened, 'candidates screened'],
+        [counts.corrections, 'corrections'],
+        [counts.research_leads, 'Research Leads'],
+        [counts.references, 'references']
+      ]
+    : [
+        [counts.map, 'map records'],
+        [counts.interventions, 'interventions'],
+        [counts.negatives, 'negative results'],
+        [counts.conflicts, 'conflicts'],
+        [counts.corrections, 'corrections'],
+        [counts.leads, 'Research Leads'],
+        [counts.open_leads, 'open Research Leads'],
+        [counts.references, 'references']
+      ];
+  document.getElementById('subtitle').textContent = metrics
+    .filter(([value]) => value !== undefined && value !== null)
+    .map(([value, label]) => `${value} ${label}`)
+    .join(' · ');
+  document.getElementById('disclaimer').innerHTML =
+    '<span>Research record, not medical advice. Evidence grades describe the state of the evidence, not the biology.</span>' +
+    (isIPF ? '<span class="scope-note"><strong>Scope:</strong> IPF only; evidence from other fibrotic diseases is included only where explicitly labelled indirect.</span>' : '');
+  const correctionCount = (db.corrections||[]).length;
+  const interpretation = m.evidence_interpretation || 'Grades describe the state of the evidence, not the biology.';
+  const correctionText = m.corrections_note ||
+    `${correctionCount} statement${correctionCount===1?'':'s'} in the archived phase reports ${correctionCount===1?'has':'have'} been corrected`;
+  const canonicalSource = m.canonical_source || m.source_of_truth || '';
   document.getElementById('foot').innerHTML =
-    `Grades describe the state of the evidence, not the biology. ` +
-    `${(db.corrections||[]).length} statements in the archived phase reports have been corrected — see the Corrections tab before citing any phase document. ` +
-    `Canonical source: ${esc(m.canonical_source||m.source_of_truth||'')}.`;
+    `<p>${esc(interpretation)}</p>` +
+    `<p>${esc(correctionText)} — see the <a href="#corrections">Corrections tab</a> before citing any phase document.</p>` +
+    `<p>Canonical source: ${esc(canonicalSource)}.</p>`;
   document.getElementById('q').oninput = e => { state.q = e.target.value; render(false); };
   document.getElementById('clear').onclick = () => {
     state.q = ''; state.facets = {}; document.getElementById('q').value = ''; render();

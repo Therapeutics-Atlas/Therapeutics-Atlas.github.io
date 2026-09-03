@@ -328,9 +328,16 @@ ol.phase-trail li:last-child::before{display:none}
   transition:background .14s ease}
 .cta:hover{background:var(--accent);color:#fff}
 
-footer{border-top:1px solid var(--line);color:var(--mute);font-size:12.5px;line-height:1.55;
-  padding:22px 0 44px;margin-top:8px}
-footer .wrap{padding-top:0}
+.site-footer{border-top:1px solid var(--line);color:var(--mute);font-size:12.5px;line-height:1.5;
+  padding:20px 0 38px;margin-top:8px}
+.site-footer .wrap{padding-top:0}
+.footer-lines{display:grid;gap:3px}
+.footer-identity{color:var(--ink-soft)}
+.footer-context{color:var(--mute)}
+.footer-links{display:flex;align-items:center;gap:7px;margin-top:2px}
+.footer-links span{color:var(--faint)}
+.footer-links a{color:var(--accent);text-decoration:none}
+.footer-links a:hover{text-decoration:underline}
 
 @media (max-width:680px){
   .cols{grid-template-columns:1fr;gap:6px 0}
